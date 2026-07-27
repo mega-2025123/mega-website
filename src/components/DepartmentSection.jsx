@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Star, GraduationCap, Award } from 'lucide-react';
+import { Star, GraduationCap, Award, Mail } from 'lucide-react';
 
-export const DepartmentSection = () => {
+export const DepartmentSection = ({ openOfficialMessage }) => {
   const facultyList = [
     { name: 'Mr. T. Suresh Babu', role: 'Assistant Professor', dept: 'Mechanical Engineering', initials: 'SB', image: '/assets/Suresh.jpg' },
     { name: 'Dr. T. Ravi Teja', role: 'Assistant Professor', dept: 'Mechanical Engineering', initials: 'RT', image: '/assets/Ravi Teja.jpg' },
@@ -52,8 +52,29 @@ export const DepartmentSection = () => {
                 Mr. B. Ramanjaneyulu
               </h3>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light">
-                "It gives me great pleasure to present the launch of our Mechanical Engineering Guild Association. This association aims to bring together the achievements, activities, and creative contributions of our faculty and students under one dynamic platform. I deeply appreciate the efforts of the organizing team and all contributors who made this possible. I hope this initiative inspires everyone to pursue excellence, foster teamwork, and uphold the values of our institution."
+                As Head of the Mechanical Engineering Department at NSRIET, Mr. B. Ramanjaneyulu provides visionary guidance to student innovations. Under his stewardship, the department fosters hands-on technical learning, industrial exposure, and active student guild participation to produce future-ready engineers.
               </p>
+
+              {openOfficialMessage && (
+                <div className="pt-4 border-t border-white/10 flex justify-center md:justify-start">
+                  <button
+                    onClick={() => openOfficialMessage({
+                      id: 'hod',
+                      role: 'Head of Department',
+                      name: 'Mr. B. Ramanjaneyulu',
+                      qualification: 'Assistant Professor & HOD',
+                      institution: 'N S Raju Institute of Engineering and Technology',
+                      image: '/assets/Hod.jpg',
+                      initials: 'BR',
+                      message: `"It gives me great pleasure to present the launch of our Mechanical Engineering Guild Association. This association aims to bring together the achievements, activities, and creative contributions of our faculty and students under one dynamic platform. I deeply appreciate the efforts of the organizing team and all contributors who made this possible. I hope this initiative inspires everyone to pursue excellence, foster teamwork, and uphold the values of our institution."`
+                    })}
+                    className="btn-jaswanth-secondary w-full md:w-auto justify-center text-xs"
+                  >
+                    <Mail className="w-4 h-4 text-orange-400" />
+                    <span>Read Official Message</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

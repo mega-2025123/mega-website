@@ -24,7 +24,7 @@ export const AboutPage = () => {
     <div className="w-full flex flex-col items-center">
       <AboutSection />
       <CollegeOfficials openOfficialMessage={openOfficialMessage} />
-      <DepartmentSection />
+      <DepartmentSection openOfficialMessage={openOfficialMessage} />
       <Modals activeModal={activeModal} closeModal={closeModal} modalData={modalData} />
     </div>
   );
