@@ -13,7 +13,7 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
       institution: 'N S Raju Institute of Engineering and Technology',
       image: '/assets/Secreatry.jpg',
       initials: 'PR',
-      message: `It gives me immense pride to witness the establishment of the Mechanical Engineering Guild Association (MEGA). Our institute has always strived to foster innovation, academic rigor, and leadership among students. MEGA represents the collective enthusiasm and ingenuity of our Mechanical Engineering department. I encourage all students to actively participate, explore new horizons, and lead with excellence.`
+      message: `Best wishes to the Department of Mechanical Engineering for coming forward to launch the Mechanical Engineering Guild Association to bring together the talents and innovative spirit of its students and faculty. I am confident that this association will serve as a vibrant platform for all stakeholders to collaborate, share knowledge, and showcase their achievements. Hearty congratulations and best wishes once again to all the students, staff, and faculty of the Mechanical Engineering Department.`
     },
     {
       id: 'principal',
@@ -23,7 +23,7 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
       institution: 'N S Raju Institute of Engineering and Technology',
       image: '/assets/per.jpg',
       initials: 'GR',
-      message: `Welcome to the official portal of MEGA! Technical student bodies play a pivotal role in shaping well-rounded engineers capable of tackling real-world challenges. Through technical symposiums, hands-on workshops, and collaborative projects, MEGA will empower our mechanical engineering students to push boundaries. I extend my heartiest congratulations to the faculty coordinators and student officers.`
+      message: `I congratulate the Department of Mechanical Engineering and the organizing team for launching the Mechanical Engineering Guild Association. This association will undoubtedly serve as a platform to highlight the talents and achievements of the students and faculty of the department. I am confident that the Guild will inspire every Mechanical Engineering student to actively participate, collaborate, and showcase their skills in the days to come. Hearty wishes to all the students, staff, and faculty of the Mechanical Engineering Department.`
     }
   ];
 

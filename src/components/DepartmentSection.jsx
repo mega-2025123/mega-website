@@ -52,7 +52,7 @@ export const DepartmentSection = () => {
                 Mr. B. Ramanjaneyulu
               </h3>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light">
-                As Head of the Mechanical Engineering Department at NSRIET, Mr. B. Ramanjaneyulu provides visionary guidance to student innovations. Under his stewardship, the department fosters hands-on technical learning, industrial exposure, and active student guild participation to produce future-ready engineers.
+                "It gives me great pleasure to present the launch of our Mechanical Engineering Guild Association. This association aims to bring together the achievements, activities, and creative contributions of our faculty and students under one dynamic platform. I deeply appreciate the efforts of the organizing team and all contributors who made this possible. I hope this initiative inspires everyone to pursue excellence, foster teamwork, and uphold the values of our institution."
               </p>
             </div>
           </div>
