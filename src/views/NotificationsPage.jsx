@@ -49,9 +49,9 @@ export const NotificationsPage = () => {
       <div className="w-full space-y-8">
 
         {/* Filter & Search Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 border border-white/10 p-4 rounded-2xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[#111111]/80 border border-white/8 p-5 rounded-[24px] backdrop-blur-md shadow-xl w-full">
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 w-full md:w-auto">
             {[
               { id: 'all', label: 'All Notices' },
               { id: 'official', label: 'Official' },
@@ -61,10 +61,10 @@ export const NotificationsPage = () => {
               <button
                 key={tab.id}
                 onClick={() => setFilter(tab.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-300 ${
                   filter === tab.id
-                    ? 'bg-orange-500 text-white shadow-[0_0_15px_rgba(255,69,0,0.4)]'
-                    : 'text-gray-400 hover:text-white hover:bg-white/10'
+                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-[0_0_20px_rgba(255,69,0,0.45)]'
+                    : 'bg-[#1a1a1a]/60 border border-white/5 text-gray-400 hover:text-white hover:bg-[#1a1a1a]/90 hover:translate-y-[-1px]'
                 }`}
               >
                 {tab.label}
@@ -73,14 +73,14 @@ export const NotificationsPage = () => {
           </div>
 
           {/* Search Input */}
-          <div className="relative w-full sm:w-64">
-            <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <div className="relative w-full md:w-[340px] shrink-0">
+            <Search className="w-4 h-4 text-gray-500 absolute left-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search notifications..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-black/60 border border-white/10 rounded-full pl-10 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+              className="w-full bg-black/40 border border-white/10 rounded-full pl-11 pr-5 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/80 focus:shadow-[0_0_15px_rgba(255,69,0,0.25)] transition-all duration-300"
             />
           </div>
         </div>

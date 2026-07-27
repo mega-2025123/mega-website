@@ -1,7 +1,5 @@
 import { PageHero } from '../../src/components/PageHero';
-import { AboutSection } from '../../src/components/AboutSection';
-import { CollegeOfficials } from '../../src/components/CollegeOfficials';
-import { DepartmentSection } from '../../src/components/DepartmentSection';
+import { AboutPage } from '../../src/views/AboutPage';
 
 export const metadata = {
   title: 'About Us | MEGA NSRIET',
@@ -16,9 +14,7 @@ export default function About() {
         accentWord="MEGA"
         subtitle="Discover our founding story, leadership team, and the vision behind the Mechanical Engineering Guild Association."
       />
-      <AboutSection />
-      <CollegeOfficials />
-      <DepartmentSection />
+      <AboutPage />
     </div>
   );
 }

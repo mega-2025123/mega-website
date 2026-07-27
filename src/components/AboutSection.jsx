@@ -30,8 +30,8 @@ export const AboutSection = () => {
             </p>
 
             {/* Guild Motto Box */}
-            <div className="w-full my-2 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-orange-500/12 via-amber-500/8 to-transparent border border-orange-500/30 text-center relative overflow-hidden shadow-[0_0_30px_rgba(255,69,0,0.12)]">
-              <div className="flex flex-col items-center space-y-2 relative z-10">
+            <div className="w-full my-4 p-8 sm:p-10 rounded-[24px] bg-[#111111]/60 border border-orange-500/25 text-center relative overflow-hidden shadow-[0_0_40px_rgba(255,69,0,0.15)] backdrop-blur-md hover:border-orange-500/40 transition-colors duration-300">
+              <div className="flex flex-col items-center space-y-3 relative z-10">
                 <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-orange-400">
                   Official Guild Motto
                 </span>

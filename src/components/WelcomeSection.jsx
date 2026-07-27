@@ -29,7 +29,7 @@ export const WelcomeSection = () => {
   ];
 
   return (
-    <section id="welcome" className="w-full py-20 md:py-28 px-6 md:px-12 flex justify-center">
+    <section id="welcome" className="w-full pt-40 md:pt-52 pb-20 md:pb-28 px-6 md:px-12 flex justify-center">
       <div className="max-w-6xl w-full space-y-12">
         
         {/* Section Header */}
@@ -64,10 +64,10 @@ export const WelcomeSection = () => {
               {pillars.map((p, i) => (
                 <div 
                   key={i} 
-                  className="bg-black/60 border border-white/10 rounded-2xl p-5 hover:border-orange-500/40 hover:bg-black/80 transition-all duration-300 group flex flex-col justify-between"
+                  className="bg-[#111111]/80 border border-white/8 rounded-[24px] p-6 hover:border-orange-500/35 hover:bg-[#111111]/95 transition-all duration-300 hover:scale-[1.03] hover:translate-y-[-2px] shadow-lg flex flex-col justify-between backdrop-blur-md group"
                 >
-                  <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                       {p.icon}
                     </div>
                     <h3 className="text-base font-bold text-white group-hover:text-orange-400 transition-colors">

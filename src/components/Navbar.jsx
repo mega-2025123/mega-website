@@ -29,8 +29,8 @@ export const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pt-4 md:pt-6 px-4 md:px-8 flex justify-center pointer-events-none transition-all duration-500">
-      <div className={`pointer-events-auto w-full max-w-7xl flex items-center justify-between px-6 md:px-10 py-3.5 top-nav-jaswanth transition-all duration-500 ${
-        scrolled ? 'shadow-[0_8px_40px_rgba(0,0,0,0.9)]' : ''
+      <div className={`pointer-events-auto w-full max-w-7xl flex items-center justify-between px-6 md:px-10 top-nav-jaswanth transition-all duration-500 ${
+        scrolled ? 'top-nav-jaswanth-scrolled shadow-[0_8px_40px_rgba(0,0,0,0.9)]' : ''
       }`}>
         
         {/* Left: MEGA Branding */}
@@ -39,23 +39,20 @@ export const Navbar = () => {
         </Link>
 
         {/* Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-3">
+        <nav className="hidden lg:flex items-center gap-2 xl:gap-4">
           {navItems.map((item) => {
             const isActive = pathname === item.path;
             return (
               <Link
                 key={item.name}
                 href={item.path}
-                className={`relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-300 ${
+                className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   isActive
-                    ? 'text-white bg-white/10'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                    ? 'text-white bg-gradient-to-r from-orange-500 to-orange-600 shadow-[0_0_20px_rgba(255,69,0,0.45)] font-semibold'
+                    : 'text-gray-400 hover:text-white hover:bg-white/5 hover:translate-y-[-1px]'
                 }`}
               >
                 {item.name}
-                {isActive && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-orange-500 rounded-full" />
-                )}
               </Link>
             );
           })}

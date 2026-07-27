@@ -52,7 +52,7 @@ export const UpcomingEvents = () => {
         </div>
 
         {/* 2 Featured Upcoming Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {featuredEvents.map((evt) => (
             <div 
               key={evt.id} 
@@ -92,11 +92,11 @@ export const UpcomingEvents = () => {
         </div>
 
         {/* Upcoming Announcements Banner Card */}
-        <div className="card-jaswanth-24 border-dashed text-center flex flex-col items-center justify-center p-8 bg-black/40">
-          <div className="w-12 h-12 rounded-2xl bg-black border border-orange-500/40 flex items-center justify-center mb-3 text-orange-400 shadow-md">
+        <div className="card-jaswanth-24 border-dashed border-orange-500/20 text-center flex flex-col items-center justify-center p-8 bg-[#111111]/40 hover:border-orange-500/45">
+          <div className="w-12 h-12 rounded-2xl bg-[#111111] border border-orange-500/30 flex items-center justify-center mb-4 text-orange-400 shadow-md">
             <Clock className="w-6 h-6 animate-pulse" />
           </div>
-          <h3 className="text-lg md:text-xl font-bold font-heading text-white tracking-widest uppercase mb-1">
+          <h3 className="text-lg md:text-xl font-bold font-heading text-white tracking-widest uppercase mb-2">
             MORE EVENTS COMING SOON
           </h3>
           <p className="text-gray-400 text-xs sm:text-sm max-w-md font-light">

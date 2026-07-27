@@ -63,11 +63,11 @@ export const NewslettersPage = () => {
                 placeholder="Enter your student or personal email..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-black/60 border border-white/10 rounded-full px-5 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+                className="flex-1 input-jaswanth text-xs placeholder-gray-500"
               />
               <button
                 type="submit"
-                className="btn-jaswanth-primary text-xs py-3 px-6 shrink-0"
+                className="btn-jaswanth-primary text-xs shrink-0"
               >
                 <span>Subscribe Now</span>
               </button>
@@ -87,7 +87,7 @@ export const NewslettersPage = () => {
             <h3 className="text-xl font-bold text-white">Published Bulletin Editions</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {newsletters.map((nl, i) => (
               <div 
                 key={nl.id}

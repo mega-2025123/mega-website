@@ -142,7 +142,7 @@ export const TeamGrid = () => {
         </div>
 
         {/* 11 Office Bearers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
           {filteredMembers.map((member, index) => {
             const [imgError, setImgError] = useState(false);
 
@@ -155,7 +155,7 @@ export const TeamGrid = () => {
                 <div>
                   {/* Photo / Avatar */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300 relative">
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shrink-0 shadow-md group-hover:scale-105 group-hover:border-orange-500/30 group-hover:shadow-[0_0_20px_rgba(255,69,0,0.15)] transition-all duration-300 relative">
                       {member.image && !imgError ? (
                         <img 
                           src={member.image} 
@@ -164,7 +164,7 @@ export const TeamGrid = () => {
                           onError={() => setImgError(true)}
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/20 via-neutral-900 to-neutral-950 text-orange-400 font-heading font-black text-lg">
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/20 via-neutral-900 to-neutral-950 text-orange-400 font-heading font-black text-xl">
                           {member.initials}
                         </div>
                       )}

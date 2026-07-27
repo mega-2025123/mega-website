@@ -95,7 +95,7 @@ Key Takeaways:
 
                 <button
                   onClick={() => setSelectedArticle(blog)}
-                  className="btn-jaswanth-secondary text-xs py-2 px-4 self-start sm:self-auto group"
+                  className="btn-jaswanth-secondary text-xs group"
                 >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-orange-400" />

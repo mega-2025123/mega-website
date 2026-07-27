@@ -113,45 +113,54 @@ a { color: inherit; text-decoration: none; }
 .delay-700 { animation-delay: 0.7s; }
 .delay-800 { animation-delay: 0.8s; }
 
-/* ========== TOP NAV BAR (Image 3 Reference) ========== */
+/* ========== TOP NAV BAR ========== */
 
 .top-nav-jaswanth {
-  background: rgba(10, 10, 10, 0.85) !important;
+  margin-top: 20px !important;
+  width: 92% !important;
+  max-width: 1400px !important;
+  height: 76px !important;
+  background: rgba(12, 12, 12, 0.82) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 24px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-  transition: all 0.3s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.top-nav-jaswanth:hover {
-  border-color: rgba(255, 255, 255, 0.15) !important;
+.top-nav-jaswanth-scrolled {
+  height: 68px !important;
+  background: rgba(8, 8, 8, 0.92) !important;
+  backdrop-filter: blur(26px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
 }
 
-/* ========== CARDS (Image 4 Reference) ========== */
+/* ========== CARDS ========== */
 
 .card-jaswanth-24 {
-  background-color: rgba(17, 17, 17, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(15, 15, 15, 0.82) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-radius: 24px !important;
   padding: 2rem !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.02) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 @media (min-width: 768px) {
-  .card-jaswanth-24 { padding: 2.5rem !important; }
+  .card-jaswanth-24 { padding: 2.25rem !important; }
 }
 
 .card-jaswanth-24:hover {
-  border-color: rgba(255, 255, 255, 0.18) !important;
-  transform: translateY(-6px) !important;
-  box-shadow: 0 20px 40px rgba(255, 69, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 69, 0, 0.3) !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(255, 69, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* ========== GLOW PILLS (Image 4 Reference) ========== */
+/* ========== GLOW PILLS ========== */
 
 .skill-pill {
   display: inline-flex;
@@ -183,17 +192,17 @@ a { color: inherit; text-decoration: none; }
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  background-color: #FF4500 !important;
+  background: linear-gradient(135deg, #FF4500, #FF7A00) !important;
   color: #FFFFFF !important;
   font-weight: 600 !important;
   font-family: var(--font-heading) !important;
-  padding: 14px 32px !important;
+  padding: 12px 28px !important;
   border-radius: 9999px !important;
   border: none !important;
   cursor: pointer !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  font-size: 0.95rem !important;
-  box-shadow: 0 0 20px rgba(255, 69, 0, 0.3) !important;
+  font-size: 0.9rem !important;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.25) !important;
   position: relative !important;
   overflow: hidden !important;
 }
@@ -212,9 +221,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .btn-jaswanth-primary:hover {
-  background-color: #E03E00 !important;
-  box-shadow: 0 0 35px rgba(255, 69, 0, 0.55) !important;
   transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.5) !important;
 }
 
 .btn-jaswanth-secondary {
@@ -222,22 +230,46 @@ a { color: inherit; text-decoration: none; }
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  background: transparent !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   color: #FFFFFF !important;
   font-weight: 600 !important;
   font-family: var(--font-heading) !important;
-  padding: 14px 30px !important;
+  padding: 12px 26px !important;
   border-radius: 9999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  font-size: 0.95rem !important;
+  font-size: 0.9rem !important;
 }
 
 .btn-jaswanth-secondary:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 69, 0, 0.05) !important;
+  border-color: rgba(255, 69, 0, 0.4) !important;
   transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.15) !important;
+}
+
+/* ========== INPUT FIELDS ========== */
+
+.input-jaswanth {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 9999px !important;
+  padding: 10px 20px !important;
+  color: #FFFFFF !important;
+  font-size: 0.875rem !important;
+  transition: all 0.3s ease !important;
+  outline: none !important;
+}
+
+.input-jaswanth:focus {
+  border-color: #FF4500 !important;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.3) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
 /* ========== ROLE TAG ========== */
@@ -295,3 +327,48 @@ a { color: inherit; text-decoration: none; }
 .fire-border-left {
   border-left: 3px solid #FF4500 !important;
 }
+
+/* Custom Windows 11 Concept Cursors from Portfolio (Light cursors for Dark Theme) */
+html, body {
+  cursor: url('/cursors/light/arrow.cur'), auto !important;
+}
+
+a, 
+button, 
+[role="button"], 
+select, 
+summary, 
+input[type="submit"], 
+input[type="button"], 
+.cursor-pointer,
+a *,
+button *,
+[role="button"] * {
+  cursor: url('/cursors/light/hand.cur'), pointer !important;
+}
+
+input:not([type="submit"]):not([type="button"]):not([type="image"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]), 
+textarea, 
+[contenteditable="true"], 
+.cursor-text {
+  cursor: url('/cursors/light/ibeam.cur'), text !important;
+}
+
+[disabled], 
+.disabled, 
+[aria-disabled="true"], 
+.cursor-not-allowed {
+  cursor: url('/cursors/light/no.cur'), not-allowed !important;
+}
+
+.help, 
+.cursor-help {
+  cursor: url('/cursors/light/help.cur'), help !important;
+}
+
+.cursor-crosshair { cursor: url('/cursors/light/crosshair.cur'), crosshair !important; }
+.cursor-move { cursor: url('/cursors/light/sizeall.cur'), move !important; }
+.cursor-nesw-resize { cursor: url('/cursors/light/sizenesw.cur'), nesw-resize !important; }
+.cursor-ns-resize { cursor: url('/cursors/light/sizens.cur'), ns-resize !important; }
+.cursor-nwse-resize { cursor: url('/cursors/light/sizenwse.cur'), nwse-resize !important; }
+.cursor-ew-resize { cursor: url('/cursors/light/sizewe.cur'), ew-resize !important; }
