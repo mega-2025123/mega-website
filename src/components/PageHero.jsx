@@ -8,7 +8,7 @@ import React from 'react';
  */
 export const PageHero = ({ title, subtitle, accentWord }) => {
   return (
-    <div className="pt-24 md:pt-28 pb-6 px-6 md:px-12 max-w-6xl mx-auto w-full relative">
+    <div className="pt-24 md:pt-28 pb-6 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full relative">
       {/* Spacer to push headers below floating navbar */}
       <div className="h-20 md:h-28" />
       {/* Background Radial Glow */}

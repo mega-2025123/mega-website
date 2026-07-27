@@ -29,7 +29,7 @@ export const WelcomeSection = () => {
   ];
 
   return (
-    <section id="welcome" className="w-full pt-40 md:pt-52 pb-20 md:pb-28 px-6 md:px-12 flex justify-center">
+    <section id="welcome" className="w-full pt-40 md:pt-52 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 flex justify-center">
       <div className="max-w-6xl w-full space-y-12">
         
         {/* Section Header */}

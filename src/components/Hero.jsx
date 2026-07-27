@@ -8,7 +8,7 @@ export const Hero = () => {
   const [heroImgError, setHeroImgError] = useState(false);
 
   return (
-    <section id="home" className="w-full min-h-[calc(100vh-8rem)] flex items-center justify-center pt-28 md:pt-36 pb-24 px-6 md:px-12 relative text-center">
+    <section id="home" className="w-full min-h-[calc(100vh-8rem)] flex items-center justify-center pt-28 md:pt-36 pb-24 px-4 sm:px-6 md:px-12 relative text-center overflow-hidden">
       {/* Full-width Ambient Fire Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[500px] bg-gradient-to-b from-orange-500/12 via-orange-600/5 to-transparent rounded-full blur-[140px] pointer-events-none z-0" />
 
@@ -43,11 +43,11 @@ export const Hero = () => {
         </div>
 
         {/* Title */}
-        <div className="space-y-3 animate-fadeInUp delay-300">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-white leading-[1.08]">
+        <div className="space-y-3 animate-fadeInUp delay-300 w-full max-w-4xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-[1.08]">
             MECHANICAL ENGINEERING
           </h1>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter leading-[1.08]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.08]">
             <span className="shimmer-text">GUILD ASSOCIATION</span>
           </h1>
         </div>

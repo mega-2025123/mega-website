@@ -15,7 +15,7 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
   const [balaErr, setBalaErr] = useState(false);
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-12 w-full flex justify-center">
+    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 w-full flex justify-center">
       <div className="max-w-6xl w-full space-y-20">
         
         {/* --- 1. Head of Department --- */}

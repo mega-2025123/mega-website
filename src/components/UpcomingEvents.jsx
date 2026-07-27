@@ -27,7 +27,7 @@ export const UpcomingEvents = () => {
   ];
 
   return (
-    <section className="w-full py-20 md:py-28 px-6 md:px-12 flex justify-center">
+    <section className="w-full py-20 md:py-28 px-4 sm:px-6 md:px-12 flex justify-center">
       <div className="max-w-6xl w-full space-y-10">
         
         {/* Header with matching alignment */}

@@ -45,7 +45,7 @@ Key Takeaways:
   ];
 
   return (
-    <div className="pb-20 pt-2 px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh]">
+    <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh]">
       <div className="w-full space-y-8">
 
         {/* Blogs List */}

@@ -6,7 +6,7 @@ import { Sparkles, Compass, Shield, Flame } from 'lucide-react';
 
 export const AboutSection = () => {
   return (
-    <section id="about-vision" className="w-full pb-16 pt-6 px-6 md:px-12 flex justify-center">
+    <section id="about-vision" className="w-full pb-16 pt-6 px-4 sm:px-6 md:px-12 flex justify-center">
       <div className="max-w-6xl w-full">
         
         {/* Main Guild Story Card */}

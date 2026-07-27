@@ -104,7 +104,7 @@ export const TeamGrid = () => {
     : teamMembers.filter(m => m.category === filter);
 
   return (
-    <section id="team" className="pb-20 pt-2 px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center">
+    <section id="team" className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center">
       <div className="w-full space-y-10">
         
         {/* Filter Pills Bar */}
@@ -142,14 +142,14 @@ export const TeamGrid = () => {
         </div>
 
         {/* 11 Office Bearers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-10">
           {filteredMembers.map((member, index) => {
             const [imgError, setImgError] = useState(false);
 
             return (
               <div 
                 key={index} 
-                className="card-jaswanth-24 flex flex-col justify-between group text-center sm:text-left hover:border-orange-500/40 transition-all duration-300 animate-fadeInUp"
+                className="card-jaswanth-24 flex flex-col justify-between group text-center sm:text-left hover:border-orange-500/40 transition-all duration-300 animate-fadeInUp w-full sm:w-[calc(50%-1.25rem)] md:w-[calc(33.333%-1.75rem)] lg:w-[calc(25%-1.875rem)]"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <div>
