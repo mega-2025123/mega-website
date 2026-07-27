@@ -32,14 +32,8 @@ export const Modals = ({ activeModal, closeModal, modalData }) => {
               </div>
             </div>
 
-            <div className="prose prose-invert max-w-none text-gray-300 text-sm sm:text-base leading-relaxed space-y-4">
-              <p className="font-semibold text-white text-base">
-                Greetings to the faculty, students, and well-wishers of NSRIET!
-              </p>
-              <p>{modalData.message}</p>
-              <p>
-                "Mechanical engineering is the backbone of technological progress. With unity and perseverance, MEGA will inspire our students to scale new heights."
-              </p>
+            <div className="prose prose-invert max-w-none text-gray-300 text-sm sm:text-base leading-relaxed">
+              <p className="whitespace-pre-wrap">{modalData.message}</p>
             </div>
 
             <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
