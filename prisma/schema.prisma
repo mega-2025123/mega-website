@@ -1,0 +1,169 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Blog {
+  id              String    @id @default(uuid())
+  title           String
+  slug            String    @unique
+  coverImage      String?
+  category        String?
+  tags            String[]  @default([])
+  summary         String?
+  content         String
+  author          String    @default("MEGA")
+  publishDate     DateTime?
+  status          String    @default("draft")
+  featured        Boolean   @default(false)
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  views           Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
+
+  @@map("blogs")
+}
+
+model Event {
+  id                   String    @id @default(uuid())
+  name                 String
+  slug                 String    @unique
+  banner               String?
+  description          String
+  content              String?
+  date                 DateTime
+  time                 String?
+  venue                String
+  organizer            String?
+  contact              String?
+  registrationLink     String?
+  registrationDeadline DateTime?
+  gallery              String[]  @default([])
+  status               String    @default("upcoming")
+  featured             Boolean   @default(false)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  deletedAt            DateTime?
+
+  @@map("events")
+}
+
+model Newsletter {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  issueNumber Int
+  thumbnail   String?
+  pdfUrl      String
+  publishDate DateTime  @default(now())
+  downloads   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  @@map("newsletters")
+}
+
+model Announcement {
+  id          String    @id @default(uuid())
+  title       String
+  content     String
+  type        String    @default("general")
+  priority    String    @default("normal")
+  pinned      Boolean   @default(false)
+  expiryDate  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  @@map("announcements")
+}
+
+model GalleryAlbum {
+  id          String         @id @default(uuid())
+  name        String
+  description String?
+  coverImage  String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  images      GalleryImage[]
+
+  @@map("gallery_albums")
+}
+
+model GalleryImage {
+  id        String        @id @default(uuid())
+  url       String
+  caption   String?
+  albumId   String?
+  album     GalleryAlbum? @relation(fields: [albumId], references: [id])
+  order     Int           @default(0)
+  createdAt DateTime      @default(now())
+  deletedAt DateTime?
+
+  @@map("gallery_images")
+}
+
+model MediaFile {
+  id        String    @id @default(uuid())
+  name      String
+  url       String
+  type      String
+  size      Int
+  mimeType  String?
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+
+  @@map("media_files")
+}
+
+model ContactMessage {
+  id        String    @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  read      Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+
+  @@map("contact_messages")
+}
+
+model PageContent {
+  id        String   @id @default(uuid())
+  page      String   @unique
+  content   Json
+  updatedAt DateTime @updatedAt
+
+  @@map("page_contents")
+}
+
+model SeoSettings {
+  id              String   @id @default(uuid())
+  page            String   @unique
+  metaTitle       String?
+  metaDescription String?
+  keywords        String?
+  ogImage         String?
+  canonicalUrl    String?
+  updatedAt       DateTime @updatedAt
+
+  @@map("seo_settings")
+}
+
+model SiteSettings {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@map("site_settings")
+}
