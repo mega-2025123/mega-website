@@ -10,8 +10,8 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#050505] border-t border-white/8 pt-16 pb-8 px-4 sm:px-6 md:px-12 relative z-10">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <footer className="w-full bg-[#050505] border-t border-white/8 pt-16 pb-8 px-4 sm:px-6 md:px-12 relative z-10 flex justify-center">
+      <div className="max-w-6xl w-full space-y-12">
         
         {/* Main Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
