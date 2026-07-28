@@ -58,6 +58,7 @@ export const Footer = () => {
               {[
                 { name: 'Blog', path: '/blog' },
                 { name: 'Events', path: '/events' },
+                { name: 'Gallery', path: '/gallery' },
                 { name: 'Newsletters', path: '/newsletters' },
               ].map((link) => (
                 <Link 
