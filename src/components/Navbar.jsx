@@ -46,10 +46,10 @@ export const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.path}
-                className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+                className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   isActive
-                    ? 'text-white bg-gradient-to-r from-orange-500 to-orange-600 shadow-[0_0_20px_rgba(255,69,0,0.45)] font-semibold'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5 hover:translate-y-[-1px]'
+                    ? 'text-orange-400 font-bold drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]'
+                    : 'text-gray-400 hover:text-white hover:translate-y-[-1px]'
                 }`}
               >
                 {item.name}
@@ -80,7 +80,7 @@ export const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${
                   isActive
-                    ? 'bg-orange-500/15 text-orange-400 font-bold'
+                    ? 'text-orange-400 font-bold'
                     : 'text-gray-400 hover:bg-white/5 hover:text-white'
                 }`}
                 style={{ animationDelay: `${i * 0.05}s` }}

@@ -24,7 +24,7 @@ export const PageHero = ({ title, subtitle, accentWord }) => {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white text-center leading-tight mb-4.5">
           {accentWord ? (
             <>
-              {title}{'\u00A0'}
+              {title ? <>{title}{'\u00A0'}</> : null}
               <span className="shimmer-text">{accentWord}</span>
             </>
           ) : (
