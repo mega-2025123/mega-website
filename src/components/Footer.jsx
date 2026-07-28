@@ -43,19 +43,21 @@ export const Footer = () => {
         </div>
 
         {/* Address & Social Centered */}
-        <div className="flex flex-col items-center space-y-4 text-sm text-gray-500 font-light max-w-2xl">
-          <p className="flex items-center justify-center gap-2 text-center">
-            <MapPin className="w-4 h-4 text-orange-500 shrink-0" />
-            <span>
+        <div className="flex flex-col items-center space-y-6 text-sm text-gray-500 font-light max-w-2xl">
+          <div className="flex flex-col items-center space-y-2.5">
+            <div className="w-8 h-8 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
+              <MapPin className="w-4 h-4" />
+            </div>
+            <p className="max-w-xl leading-relaxed">
               N S Raju Institute of Engineering and Technology, Dakamarri (V), Bheemunipatnam (M), Visakhapatnam (D), Andhra Pradesh.
-            </span>
-          </p>
+            </p>
+          </div>
 
           <a 
             href="https://www.instagram.com/mega.estd.2025" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-orange-400 font-semibold hover:text-white transition-colors pt-2"
+            className="inline-flex items-center gap-2 text-orange-400 font-semibold hover:text-white transition-colors"
           >
             <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-yellow-500 via-rose-500 to-purple-600 p-0.5 flex items-center justify-center">
               <InstagramIcon className="w-3.5 h-3.5 text-white" />
