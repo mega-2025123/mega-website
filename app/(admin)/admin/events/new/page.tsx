@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Image as ImageIcon, MapPin, Calendar, Clock } from 'lucide-react';
+import { FileUpload } from '@/src/components/admin/FileUpload';
 
 const formSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -23,6 +25,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function NewEventPage() {
+  const [bannerUrl, setBannerUrl] = useState('');
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -74,11 +77,13 @@ export default function NewEventPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Event Banner</label>
-              <div className="w-full h-48 border-2 border-dashed border-gray-200 rounded-xl bg-[#18181c] border-white/10 text-white flex flex-col items-center justify-center text-gray-400 hover:bg-gray-100 hover:border-orange-300 transition-all cursor-pointer">
-                <ImageIcon size={32} className="mb-2 text-gray-300" />
-                <span className="text-sm font-medium text-gray-600">Click to upload banner image</span>
-              </div>
+              <FileUpload
+                label="Event Banner"
+                value={bannerUrl}
+                onChange={(url) => setBannerUrl(url)}
+                accept="image/*"
+                placeholder="Click or drag event banner here"
+              />
             </div>
 
             <div>

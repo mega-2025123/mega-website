@@ -5,11 +5,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { ChevronDown, Image as ImageIcon } from 'lucide-react';
+import { FileUpload } from '@/src/components/admin/FileUpload';
 
 const formSchema = z.object({
   title: z.string().min(1, 'Title is required'),
   slug: z.string().min(1, 'Slug is required'),
   summary: z.string().optional(),
+  coverImage: z.string().optional(),
   status: z.enum(['Draft', 'Published', 'Scheduled']),
   category: z.string().optional(),
   tags: z.string().optional(),
@@ -24,6 +26,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function NewBlogPage() {
   const [isSeoOpen, setIsSeoOpen] = useState(false);
+  const [coverImage, setCoverImage] = useState('');
   
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -150,12 +153,16 @@ export default function NewBlogPage() {
             </label>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Cover Image</label>
-              <div className="w-full h-40 border-2 border-dashed border-gray-200 rounded-xl bg-[#18181c] border-white/10 text-white flex flex-col items-center justify-center text-gray-400 hover:bg-gray-100 hover:border-orange-300 transition-all cursor-pointer">
-                <ImageIcon size={32} className="mb-2 text-gray-300" />
-                <span className="text-sm font-medium text-gray-600">Click to upload image</span>
-                <span className="text-xs mt-1 text-gray-400">PNG, JPG up to 5MB</span>
-              </div>
+              <FileUpload
+                label="Cover Image"
+                value={coverImage}
+                onChange={(url) => {
+                  setCoverImage(url);
+                  setValue('coverImage', url);
+                }}
+                accept="image/*"
+                placeholder="Click or drag cover image here"
+              />
             </div>
           </div>
 

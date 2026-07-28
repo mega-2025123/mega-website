@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { FileUp, Image as ImageIcon } from 'lucide-react';
+import { FileUpload } from '@/src/components/admin/FileUpload';
 
 const formSchema = z.object({
   title: z.string().min(1, 'Title is required'),
@@ -15,6 +17,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function NewNewsletterPage() {
+  const [pdfUrl, setPdfUrl] = useState('');
+  const [thumbnailUrl, setThumbnailUrl] = useState('');
   const { register, handleSubmit } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   });
@@ -76,20 +80,23 @@ export default function NewNewsletterPage() {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">PDF File</label>
-              <div className="w-full h-40 border-2 border-dashed border-gray-200 rounded-xl bg-[#18181c] border-white/10 text-white flex flex-col items-center justify-center text-gray-400 hover:bg-gray-100 hover:border-orange-300 transition-all cursor-pointer">
-                <FileUp size={32} className="mb-2 text-gray-300" />
-                <span className="text-sm font-medium text-gray-600">Drag & drop PDF here</span>
-                <span className="text-xs mt-1 text-gray-400">or click to browse</span>
-              </div>
+              <FileUpload
+                label="PDF File"
+                value={pdfUrl}
+                onChange={(url) => setPdfUrl(url)}
+                accept="application/pdf"
+                placeholder="Click or drag PDF newsletter file here"
+              />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Thumbnail</label>
-              <div className="w-full h-32 border-2 border-dashed border-gray-200 rounded-xl bg-[#18181c] border-white/10 text-white flex flex-col items-center justify-center text-gray-400 hover:bg-gray-100 hover:border-orange-300 transition-all cursor-pointer">
-                <ImageIcon size={24} className="mb-2 text-gray-300" />
-                <span className="text-sm font-medium text-gray-600">Upload cover image</span>
-              </div>
+              <FileUpload
+                label="Thumbnail Cover"
+                value={thumbnailUrl}
+                onChange={(url) => setThumbnailUrl(url)}
+                accept="image/*"
+                placeholder="Click or drag newsletter cover image here"
+              />
             </div>
           </div>
         </div>
