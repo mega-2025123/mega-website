@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Calendar, MapPin, Sparkles, X, Eye } from 'lucide-react';
 
 export const EventsPage = () => {
-  const [filter, setFilter] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
 
   const events = [
@@ -60,39 +59,13 @@ export const EventsPage = () => {
     }
   ];
 
-  const filteredEvents = filter === 'all'
-    ? events
-    : events.filter(e => e.catId === filter);
-
   return (
     <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh]">
       <div className="w-full space-y-10">
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {[
-            { id: 'all', label: 'All Activities' },
-            { id: 'industrial', label: 'Industrial Exposure' },
-            { id: 'workshops', label: 'Technical Workshops' },
-            { id: 'guild', label: 'Orientation & Guild' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setFilter(tab.id)}
-              className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-                filter === tab.id
-                  ? 'bg-orange-500 text-white shadow-[0_0_20px_rgba(255,69,0,0.4)]'
-                  : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-          {filteredEvents.map((evt, i) => {
+          {events.map((evt, i) => {
             const [imgErr, setImgErr] = useState(false);
 
             return (

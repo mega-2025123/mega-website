@@ -5,8 +5,6 @@ import { InstagramIcon, WhatsAppIcon } from './Icons';
 import { Shield, Users, Award, Sparkles } from 'lucide-react';
 
 export const TeamGrid = () => {
-  const [filter, setFilter] = useState('all');
-
   const teamMembers = [
     {
       name: 'Rohith Pramodh Kottoju',
@@ -99,51 +97,13 @@ export const TeamGrid = () => {
     }
   ];
 
-  const filteredMembers = filter === 'all' 
-    ? teamMembers 
-    : teamMembers.filter(m => m.category === filter);
-
   return (
     <section id="team" className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center">
       <div className="w-full space-y-10">
         
-        {/* Filter Pills Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <button
-            onClick={() => setFilter('all')}
-            className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-              filter === 'all'
-                ? 'bg-orange-500 text-white shadow-[0_0_20px_rgba(255,69,0,0.4)]'
-                : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            All Office Bearers ({teamMembers.length})
-          </button>
-          <button
-            onClick={() => setFilter('board')}
-            className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-              filter === 'board'
-                ? 'bg-orange-500 text-white shadow-[0_0_20px_rgba(255,69,0,0.4)]'
-                : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            Executive Officers (6)
-          </button>
-          <button
-            onClick={() => setFilter('committee')}
-            className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-              filter === 'committee'
-                ? 'bg-orange-500 text-white shadow-[0_0_20px_rgba(255,69,0,0.4)]'
-                : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            Executive Members (5)
-          </button>
-        </div>
-
         {/* 11 Office Bearers Grid */}
         <div className="flex flex-wrap justify-center gap-8 md:gap-10">
-          {filteredMembers.map((member, index) => {
+          {teamMembers.map((member, index) => {
             const [imgError, setImgError] = useState(false);
 
             return (
