@@ -6,7 +6,7 @@ export default function MessagesPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="font-outfit text-2xl font-bold text-gray-900">Contact Messages</h1>
+        <h1 className="font-heading text-2xl font-bold text-white">Contact Messages</h1>
       </div>
 
       <div className="rounded-2xl border border-gray-100 bg-white overflow-hidden">
@@ -16,14 +16,14 @@ export default function MessagesPage() {
             <input
               type="text"
               placeholder="Search messages..."
-              className="w-full rounded-xl border border-gray-200 bg-gray-50 py-2 pl-9 pr-4 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+              className="w-full rounded-xl border border-gray-200 bg-[#18181c] border-white/10 text-white py-2 pl-9 pr-4 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
             />
           </div>
         </div>
 
         <div className="flex flex-col items-center justify-center py-12 text-center">
           <Mail className="h-12 w-12 text-gray-400 mb-4" />
-          <h3 className="font-outfit text-lg font-semibold text-gray-900">No messages yet</h3>
+          <h3 className="font-heading text-lg font-semibold text-white">No messages yet</h3>
           <p className="mt-1 text-sm text-gray-500">When someone contacts you, their message will appear here.</p>
         </div>
       </div>

@@ -30,7 +30,7 @@ export interface AdminSidebarProps {
 
 const navStructure = [
   {
-    title: "Main",
+    title: "Overview",
     items: [
       { label: "Dashboard", href: "/admin", icon: LayoutDashboard }
     ]
@@ -45,7 +45,7 @@ const navStructure = [
     ]
   },
   {
-    title: "Pages",
+    title: "Pages CMS",
     items: [
       { label: "Home", href: "/admin/pages/home", icon: Home },
       { label: "About", href: "/admin/pages/about", icon: Info }
@@ -94,19 +94,24 @@ export function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProps) {
 
   return (
     <aside 
-      className={`flex flex-col h-screen bg-[#0a0a0a] border-r border-white/10 text-zinc-400 transition-all duration-300 ease-in-out z-20 sticky top-0 shrink-0 ${
-        isCollapsed ? 'w-[72px]' : 'w-[260px]'
+      className={`flex flex-col h-screen bg-[#0c0c0e] border-r border-white/[0.08] text-gray-400 transition-all duration-300 ease-in-out z-20 sticky top-0 shrink-0 select-none ${
+        isCollapsed ? 'w-[72px]' : 'w-[250px]'
       }`}
     >
       {/* Header */}
-      <div className={`h-16 flex items-center border-b border-white/10 shrink-0 transition-all duration-300 ${isCollapsed ? 'justify-center px-0' : 'justify-between px-4'}`}>
-        <div className={`flex items-center gap-2 overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out ${isCollapsed ? 'max-w-0 opacity-0' : 'max-w-[200px] opacity-100'}`}>
-          <div className="font-bold text-xl text-white tracking-tight">MEGA</div>
-          <div className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FF4500]/20 text-[#FF4500] font-bold">Admin</div>
+      <div className={`h-16 flex items-center border-b border-white/[0.08] shrink-0 transition-all duration-300 ${isCollapsed ? 'justify-center px-0' : 'justify-between px-5'}`}>
+        <div className={`flex items-center gap-2.5 overflow-hidden whitespace-nowrap transition-all duration-300 ${isCollapsed ? 'max-w-0 opacity-0' : 'max-w-[200px] opacity-100'}`}>
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white font-black text-xs shadow-[0_0_15px_rgba(255,69,0,0.3)]">
+            M
+          </div>
+          <div>
+            <div className="font-extrabold text-base text-white tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>MEGA</div>
+            <div className="text-[10px] font-bold text-orange-400 uppercase tracking-widest leading-none">CMS Portal</div>
+          </div>
         </div>
         <button 
           onClick={onToggle} 
-          className="p-1.5 rounded-md hover:bg-white/10 text-zinc-400 hover:text-white transition-colors shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]"
+          className="p-1.5 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors shrink-0 outline-none"
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
@@ -114,49 +119,42 @@ export function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProps) {
       </div>
 
       {/* Navigation */}
-      <div className="flex-1 overflow-y-auto overflow-x-hidden py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-zinc-800/50 hover:[&::-webkit-scrollbar-thumb]:bg-zinc-700 [&::-webkit-scrollbar-thumb]:rounded-full">
-        {navStructure.map((section, idx) => (
-          <div key={section.title} className={idx !== 0 ? "mt-6" : ""}>
-            {!isCollapsed && section.title !== "Main" && (
-              <h3 className="px-5 text-[11px] font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden py-4 px-3 space-y-6 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-white/10">
+        {navStructure.map((section) => (
+          <div key={section.title} className="space-y-1">
+            {!isCollapsed && (
+              <h3 className="px-3 text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-1.5">
                 {section.title}
               </h3>
             )}
             
-            {isCollapsed && section.title !== "Main" && (
-              <div className="h-px w-6 bg-white/10 mx-auto mb-3 mt-5" aria-hidden="true" />
+            {isCollapsed && (
+              <div className="h-px w-6 bg-white/10 mx-auto my-2" />
             )}
 
-            <ul className="space-y-1 px-3">
+            <ul className="space-y-1">
               {section.items.map((item) => {
                 const isActive = isActivePath(item.href);
                 return (
                   <li key={item.href} className="relative group">
                     <Link 
                       href={item.href} 
-                      className={`group/link relative flex items-center h-[38px] rounded-md transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] ${
+                      className={`relative flex items-center h-9 rounded-xl transition-all font-medium text-xs ${
                         isActive 
-                          ? 'bg-[#FF4500]/10 text-[#FF4500]' 
-                          : 'text-zinc-400 hover:bg-white/5 hover:text-white'
+                          ? 'bg-gradient-to-r from-orange-500/20 to-orange-500/5 text-orange-400 font-bold border border-orange-500/30 shadow-[0_0_15px_rgba(255,69,0,0.15)]' 
+                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
                       } ${isCollapsed ? 'justify-center px-0' : 'px-3'}`}
                     >
-                      {isActive && !isCollapsed && (
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#FF4500] rounded-r-full" />
-                      )}
-                      {isActive && isCollapsed && (
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#FF4500] rounded-r-full" />
-                      )}
-                      <item.icon size={18} className={`shrink-0 transition-colors ${isActive ? 'text-[#FF4500]' : 'text-zinc-400 group-hover/link:text-white'}`} />
-                      <span className={`whitespace-nowrap font-medium text-[14px] overflow-hidden transition-all duration-300 ease-in-out ${isCollapsed ? 'max-w-0 opacity-0 ml-0' : 'max-w-[200px] opacity-100 ml-3'}`}>
+                      <item.icon size={16} className={`shrink-0 transition-colors ${isActive ? 'text-orange-400' : 'text-gray-400 group-hover:text-white'}`} />
+                      <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${isCollapsed ? 'max-w-0 opacity-0 ml-0' : 'max-w-[180px] opacity-100 ml-3'}`}>
                         {item.label}
                       </span>
                     </Link>
                     
                     {/* Tooltip for collapsed mode */}
                     {isCollapsed && (
-                      <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-2.5 py-1.5 bg-zinc-800 text-white text-[13px] font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 shadow-xl border border-white/5 pointer-events-none flex items-center">
-                        <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-zinc-800 rotate-45 border-l border-b border-white/5" />
-                        <span className="relative z-10">{item.label}</span>
+                      <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-2.5 py-1.5 bg-[#18181b] text-white text-xs font-semibold rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 shadow-xl border border-white/10 pointer-events-none flex items-center">
+                        <span>{item.label}</span>
                       </div>
                     )}
                   </li>
@@ -168,23 +166,15 @@ export function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProps) {
       </div>
 
       {/* Footer */}
-      <div className="p-3 border-t border-white/10 shrink-0">
+      <div className="p-3 border-t border-white/[0.08] shrink-0">
         <button 
           onClick={handleLogout}
-          className={`w-full group relative flex items-center h-[38px] rounded-md transition-all text-zinc-400 hover:bg-white/5 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] ${isCollapsed ? 'justify-center px-0' : 'px-3'}`}
+          className={`w-full group relative flex items-center h-9 rounded-xl transition-all text-gray-400 hover:bg-red-500/10 hover:text-red-400 hover:border hover:border-red-500/20 text-xs font-semibold ${isCollapsed ? 'justify-center px-0' : 'px-3'}`}
         >
-          <LogOut size={18} className="shrink-0 group-hover:text-red-400 transition-colors" />
-          <span className={`whitespace-nowrap font-medium text-[14px] overflow-hidden transition-all duration-300 ease-in-out ${isCollapsed ? 'max-w-0 opacity-0 ml-0' : 'max-w-[200px] opacity-100 ml-3'}`}>
-            Logout
+          <LogOut size={16} className="shrink-0 group-hover:text-red-400 transition-colors" />
+          <span className={`whitespace-nowrap overflow-hidden transition-all duration-300 ${isCollapsed ? 'max-w-0 opacity-0 ml-0' : 'max-w-[180px] opacity-100 ml-3'}`}>
+            Sign Out
           </span>
-          
-          {/* Tooltip for collapsed mode */}
-          {isCollapsed && (
-            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-2.5 py-1.5 bg-zinc-800 text-white text-[13px] font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 shadow-xl border border-white/5 pointer-events-none flex items-center">
-              <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-zinc-800 rotate-45 border-l border-b border-white/5" />
-              <span className="relative z-10">Logout</span>
-            </div>
-          )}
         </button>
       </div>
     </aside>

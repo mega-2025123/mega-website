@@ -11,8 +11,8 @@ export default function MediaLibraryPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="font-outfit text-2xl font-bold text-gray-900">Media Library</h1>
-        <button className="flex items-center gap-2 rounded-xl bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600">
+        <h1 className="font-heading text-2xl font-bold text-white">Media Library</h1>
+        <button className="flex items-center gap-2 rounded-xl bg-orange-500/100 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600">
           <Upload className="h-4 w-4" />
           Upload
         </button>
@@ -24,7 +24,7 @@ export default function MediaLibraryPage() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${activeTab === tab ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${activeTab === tab ? 'bg-gray-100 text-white' : 'text-gray-500 hover:text-white'}`}
             >
               {tab}
             </button>
@@ -36,19 +36,19 @@ export default function MediaLibraryPage() {
             <input
               type="text"
               placeholder="Search media..."
-              className="w-full rounded-xl border border-gray-200 bg-gray-50 py-2 pl-9 pr-4 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:w-64"
+              className="w-full rounded-xl border border-gray-200 bg-[#18181c] border-white/10 text-white py-2 pl-9 pr-4 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 sm:w-64"
             />
           </div>
-          <div className="flex items-center rounded-lg border border-gray-200 bg-gray-50 p-1">
+          <div className="flex items-center rounded-lg border border-gray-200 bg-[#18181c] border-white/10 text-white p-1">
             <button
               onClick={() => setView('grid')}
-              className={`rounded p-1 ${view === 'grid' ? 'bg-white shadow-sm' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`rounded p-1 ${view === 'grid' ? 'bg-white shadow-sm' : 'text-gray-500 hover:text-white'}`}
             >
               <Grid className="h-4 w-4" />
             </button>
             <button
               onClick={() => setView('list')}
-              className={`rounded p-1 ${view === 'list' ? 'bg-white shadow-sm' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`rounded p-1 ${view === 'list' ? 'bg-white shadow-sm' : 'text-gray-500 hover:text-white'}`}
             >
               <List className="h-4 w-4" />
             </button>
@@ -58,7 +58,7 @@ export default function MediaLibraryPage() {
 
       <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 bg-white py-12 text-center">
         <FolderOpen className="h-12 w-12 text-gray-400 mb-4" />
-        <h3 className="font-outfit text-lg font-semibold text-gray-900">No media files yet</h3>
+        <h3 className="font-heading text-lg font-semibold text-white">No media files yet</h3>
         <p className="mt-1 text-sm text-gray-500">Upload files to populate your media library.</p>
       </div>
     </div>

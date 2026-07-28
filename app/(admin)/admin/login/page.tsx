@@ -79,7 +79,7 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-[#080808] text-white flex items-center justify-center p-4 sm:p-6 relative overflow-hidden selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#080808] text-white flex items-center justify-center p-4 sm:p-6 relative overflow-hidden selection:bg-orange-500/100 selection:text-white">
       {/* Dynamic Background Effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -189,7 +189,7 @@ export default function AdminLogin() {
           </form>
 
           {/* Credentials Helper Box */}
-          <div className="mt-6 pt-5 border-t border-white/10 bg-orange-500/5 rounded-2xl p-4 border-orange-500/20 text-left space-y-2">
+          <div className="mt-6 pt-5 border-t border-white/10 bg-orange-500/100/5 rounded-2xl p-4 border-orange-500/20 text-left space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" />
