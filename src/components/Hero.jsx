@@ -17,11 +17,11 @@ export const Hero = () => {
           <span>WELCOME TO OUR ASSOCIATION • ESTD 2025</span>
         </div>
 
-        {/* Big Guild White Text Logo Image */}
+        {/* Big Guild Logo White Text Image */}
         <div className="relative group cursor-pointer my-6 md:my-10 flex justify-center items-center">
           <img 
-            src="/assets/Logo-Home page(White).png" 
-            alt="MEGA Guild White Text Logo" 
+            src="/assets/Logo White Text.png" 
+            alt="MEGA Guild Logo White Text" 
             className="w-64 h-64 sm:w-80 sm:h-80 md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </div>
