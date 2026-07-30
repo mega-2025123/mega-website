@@ -28,22 +28,22 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 w-full flex justify-center">
+    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 w-full flex justify-center bg-[#090909]">
       <div className="max-w-6xl w-full">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-12">
           <span className="role-tag">LEADERSHIP VISION</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-            Our College <span className="shimmer-text">Officials</span>
+            Our College <span className="text-[#F97316]">Officials</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg tracking-wide font-light max-w-2xl">
+          <p className="text-[#B3B3B3] text-base md:text-lg tracking-wide font-light max-w-2xl">
             Guiding visionaries driving academic and technological excellence at NSRIET.
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full my-2 shadow-[0_0_12px_rgba(255,69,0,0.5)]" />
+          <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
         </div>
 
-        {/* 2 Officials Grid - Unified max-w-6xl width */}
+        {/* 2 Officials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {officials.map((official) => {
             const [imgErr, setImgErr] = useState(false);
@@ -51,18 +51,18 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
             return (
               <div 
                 key={official.id}
-                className="card-jaswanth-24 flex flex-col justify-between text-center sm:text-left group hover:border-orange-500/40 transition-all duration-300"
+                className="card-jaswanth-24 flex flex-col justify-between text-center sm:text-left group hover:border-[#F97316] transition-all duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className="role-tag">{official.role}</span>
-                    <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400">
+                    <div className="p-2 rounded-xl bg-[#121212] border border-[#2F2F2F] text-[#F97316]">
                       <Award className="w-4 h-4" />
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shrink-0 shadow-xl relative group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#121212] shrink-0 shadow-xl relative group-hover:scale-105 transition-transform duration-300">
                       {!imgErr ? (
                         <img 
                           src={official.image}
@@ -71,20 +71,20 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
                           onError={() => setImgErr(true)}
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/25 via-neutral-900 to-neutral-950 border border-orange-500/30 text-orange-400 font-heading font-black text-3xl shadow-inner">
+                        <div className="w-full h-full flex items-center justify-center bg-[#121212] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-3xl">
                           {official.initials}
                         </div>
                       )}
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-orange-400 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-[#F97316] transition-colors">
                         {official.name}
                       </h3>
-                      <p className="text-orange-400 text-xs font-bold tracking-wide">
+                      <p className="text-[#F97316] text-xs font-bold tracking-wide">
                         {official.qualification}
                       </p>
-                      <p className="text-gray-400 text-xs font-light leading-relaxed">
+                      <p className="text-[#B3B3B3] text-xs font-light leading-relaxed">
                         {official.institution}
                       </p>
                     </div>
@@ -92,12 +92,12 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
                 </div>
 
                 {official.message && openOfficialMessage && (
-                  <div className="pt-6 border-t border-white/10">
+                  <div className="pt-6 border-t border-[#2F2F2F]">
                     <button
                       onClick={() => openOfficialMessage(official)}
                       className="btn-jaswanth-secondary w-full justify-center text-xs py-3"
                     >
-                      <Mail className="w-4 h-4 text-orange-400" />
+                      <Mail className="w-4 h-4 text-[#F97316]" />
                       <span>Read Official Message</span>
                     </button>
                   </div>
