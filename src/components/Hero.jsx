@@ -14,33 +14,31 @@ export const Hero = () => {
         <div className="h-12 md:h-20 shrink-0" />
         
         {/* Tracking Badge with generous bottom separation */}
-        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.25em] shadow-md mb-10 md:mb-14">
+        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.25em] shadow-md mb-8 md:mb-12">
           <Sparkles className="w-4 h-4 text-[#F97316]" />
           <span>WELCOME TO OUR ASSOCIATION • ESTD 2025</span>
         </div>
 
-        {/* Logo Emblem with clear top & bottom separation */}
-        <div className="relative group cursor-pointer my-6 md:my-10">
-          <div className="relative z-10">
-            <div className="w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] p-5 flex items-center justify-center shadow-2xl group-hover:border-[#F97316]">
-              {!heroImgError ? (
-                <img 
-                  src="/assets/Logo.jpg" 
-                  alt="MEGA Guild Logo" 
-                  className="w-full h-full object-cover rounded-full"
-                  onError={() => setHeroImgError(true)}
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center font-heading font-black text-4xl text-[#F97316]">
-                  MEGA
-                </div>
-              )}
-            </div>
-          </div>
+        {/* Big Guild Logo Image (No Circle Wrapper) */}
+        <div className="relative group cursor-pointer my-6 md:my-10 flex justify-center items-center">
+          {!heroImgError ? (
+            <img 
+              src="/assets/Logo.png" 
+              alt="MEGA Guild Logo" 
+              className="w-64 h-64 sm:w-80 sm:h-80 md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
+              onError={() => setHeroImgError(true)}
+            />
+          ) : (
+            <img 
+              src="/assets/Logo-Home Page.png" 
+              alt="MEGA Guild Logo" 
+              className="w-64 h-64 sm:w-80 sm:h-80 md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          )}
         </div>
 
         {/* Title: Separated clearly from logo and subtitle */}
-        <div className="space-y-4 w-full max-w-5xl mt-8 md:mt-12 mb-6">
+        <div className="space-y-4 w-full max-w-5xl mt-6 md:mt-10 mb-6">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-normal text-white leading-tight">
             MECHANICAL ENGINEERING
           </h1>
