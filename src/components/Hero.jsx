@@ -14,23 +14,20 @@ export const Hero = () => {
         <div className="h-16 md:h-24 shrink-0" />
         
         {/* Tracking Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.2em] shadow-md animate-fadeInUp">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.2em] shadow-md">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Welcome to Our Association • Estd 2025</span>
         </div>
 
-        {/* Logo Emblem with soft radial orange glow ONLY behind logo */}
-        <div className="relative group cursor-pointer animate-scaleIn delay-200">
-          {/* Soft orange glow behind logo */}
-          <div className="absolute inset-0 -m-6 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.18),transparent_70%)] pointer-events-none" />
-
-          <div className="animate-float relative z-10">
-            <div className="w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] p-4 flex items-center justify-center shadow-2xl group-hover:border-[#F97316] transition-all duration-300">
+        {/* Logo Emblem */}
+        <div className="relative group cursor-pointer">
+          <div className="relative z-10">
+            <div className="w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] p-4 flex items-center justify-center shadow-2xl group-hover:border-[#F97316]">
               {!heroImgError ? (
                 <img 
                   src="/assets/Logo.jpg" 
                   alt="MEGA Guild Logo" 
-                  className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover rounded-full"
                   onError={() => setHeroImgError(true)}
                 />
               ) : (
@@ -42,8 +39,8 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Title: Pure White heading, only GUILD ASSOCIATION in orange */}
-        <div className="space-y-3 animate-fadeInUp delay-300 w-full max-w-4xl">
+        {/* Title */}
+        <div className="space-y-3 w-full max-w-4xl">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-[1.08]">
             MECHANICAL ENGINEERING
           </h1>
@@ -53,21 +50,21 @@ export const Hero = () => {
         </div>
 
         {/* Subtitle */}
-        <h2 className="text-base sm:text-xl md:text-2xl text-[#B3B3B3] font-light max-w-3xl leading-relaxed animate-fadeInUp delay-400">
+        <h2 className="text-base sm:text-xl md:text-2xl text-[#B3B3B3] font-light max-w-3xl leading-relaxed">
           The official student guild of Mechanical Engineering at&nbsp;
           <span className="text-white font-semibold">N S Raju Institute of Engineering and Technology</span>
         </h2>
 
         {/* Quote */}
-        <p className="italic text-sm sm:text-base md:text-lg text-[#B3B3B3]/80 max-w-2xl mx-auto leading-relaxed animate-fadeIn delay-500">
+        <p className="italic text-sm sm:text-base md:text-lg text-[#B3B3B3]/80 max-w-2xl mx-auto leading-relaxed">
           "Building innovative solutions through Mechanical Design, Automation, Teamwork, and Engineering Excellence."
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fadeInUp delay-600 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
           <Link href="/about" className="btn-jaswanth-primary group w-full max-w-[260px] sm:w-auto">
             <span>Explore Guild</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
           <Link href="/team" className="btn-jaswanth-secondary w-full max-w-[260px] sm:w-auto">
             <Users className="w-4 h-4 text-[#F97316]" />

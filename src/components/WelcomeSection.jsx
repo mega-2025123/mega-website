@@ -29,11 +29,11 @@ export const WelcomeSection = () => {
   ];
 
   return (
-    <section id="welcome" className="w-full pt-28 md:pt-36 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#111111]">
+    <section id="welcome" className="w-full pt-20 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
       <div className="max-w-6xl w-full space-y-12">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-3 animate-fadeInUp">
+        <div className="flex flex-col items-center text-center space-y-3">
           <span className="role-tag">DISCOVER MEGA</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
             Welcome to Our <span className="text-[#F97316]">Association</span>
@@ -45,11 +45,11 @@ export const WelcomeSection = () => {
         </div>
 
         {/* Main Featured Banner Card */}
-        <div className="card-jaswanth-24 text-center animate-fadeInUp delay-200">
+        <div className="card-jaswanth-24 text-center">
           <div className="flex flex-col space-y-8">
             
             <div className="space-y-4 max-w-3xl mx-auto">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#121212] border border-[#2F2F2F] px-3.5 py-1 rounded-full">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#090909] border border-[#2F2F2F] px-3.5 py-1 rounded-full">
                 ESTABLISHED 2025 • NSRIET
               </span>
               <p className="text-[#B3B3B3] font-light text-lg md:text-xl leading-relaxed">
@@ -64,13 +64,13 @@ export const WelcomeSection = () => {
               {pillars.map((p, i) => (
                 <div 
                   key={i} 
-                  className="bg-[#121212] border border-[#2F2F2F] rounded-[18px] p-6 hover:border-[#F97316] transition-all duration-300 hover:-translate-y-1 shadow-md flex flex-col justify-between group"
+                  className="bg-[#090909] border border-[#2F2F2F] rounded-[18px] p-6 hover:border-[#F97316] shadow-md flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#1C1C1C] border border-[#2F2F2F] flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl bg-[#1C1C1C] border border-[#2F2F2F] flex items-center justify-center">
                       {p.icon}
                     </div>
-                    <h3 className="text-base font-bold text-white group-hover:text-[#F97316] transition-colors">
+                    <h3 className="text-base font-bold text-white group-hover:text-[#F97316]">
                       {p.title}
                     </h3>
                     <p className="text-xs text-[#B3B3B3] leading-relaxed font-light">
@@ -85,7 +85,7 @@ export const WelcomeSection = () => {
             <div className="pt-2 flex justify-center">
               <Link href="/about" className="btn-jaswanth-secondary group">
                 <span>Learn More About Our Guild</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#F97316]" />
+                <ArrowRight className="w-4 h-4 text-[#F97316]" />
               </Link>
             </div>
 

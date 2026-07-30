@@ -51,18 +51,18 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
             return (
               <div 
                 key={official.id}
-                className="card-jaswanth-24 flex flex-col justify-between text-center sm:text-left group hover:border-[#F97316] transition-all duration-300"
+                className="card-jaswanth-24 flex flex-col justify-between text-center sm:text-left group hover:border-[#F97316]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className="role-tag">{official.role}</span>
-                    <div className="p-2 rounded-xl bg-[#121212] border border-[#2F2F2F] text-[#F97316]">
+                    <div className="p-2 rounded-xl bg-[#090909] border border-[#2F2F2F] text-[#F97316]">
                       <Award className="w-4 h-4" />
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#121212] shrink-0 shadow-xl relative group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#090909] shrink-0 shadow-xl relative">
                       {!imgErr ? (
                         <img 
                           src={official.image}
@@ -71,14 +71,14 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
                           onError={() => setImgErr(true)}
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-[#121212] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-3xl">
+                        <div className="w-full h-full flex items-center justify-center bg-[#090909] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-3xl">
                           {official.initials}
                         </div>
                       )}
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-[#F97316] transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-[#F97316]">
                         {official.name}
                       </h3>
                       <p className="text-[#F97316] text-xs font-bold tracking-wide">

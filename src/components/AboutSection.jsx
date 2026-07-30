@@ -6,15 +6,15 @@ import { Sparkles } from 'lucide-react';
 
 export const AboutSection = () => {
   return (
-    <section id="about-vision" className="w-full pb-16 pt-6 px-4 sm:px-6 md:px-12 flex justify-center bg-[#111111]">
+    <section id="about-vision" className="w-full pb-16 pt-6 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
       <div className="max-w-6xl w-full">
         
         {/* Main Guild Story Card */}
-        <div className="card-jaswanth-24 text-center animate-fadeInUp">
+        <div className="card-jaswanth-24 text-center">
           <div className="flex flex-col items-center space-y-8">
             
             {/* Header Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#121212] border border-[#2F2F2F] text-[#F97316] text-xs font-bold uppercase tracking-[0.2em]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#090909] border border-[#2F2F2F] text-[#F97316] text-xs font-bold uppercase tracking-[0.2em]">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Our Founding Story & Vision</span>
             </div>
@@ -30,7 +30,7 @@ export const AboutSection = () => {
             </p>
 
             {/* Guild Motto Box */}
-            <div className="w-full my-4 p-8 sm:p-10 rounded-[18px] bg-[#121212] border border-[#2F2F2F] text-center relative overflow-hidden shadow-md hover:border-[#F97316] transition-colors duration-300">
+            <div className="w-full my-4 p-8 sm:p-10 rounded-[18px] bg-[#090909] border border-[#2F2F2F] text-center relative overflow-hidden shadow-md hover:border-[#F97316]">
               <div className="flex flex-col items-center space-y-3 relative z-10">
                 <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#F97316]">
                   Official Guild Motto

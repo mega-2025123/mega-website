@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Sparkles, X, Eye } from 'lucide-react';
+import { Calendar, MapPin, X, Eye } from 'lucide-react';
 
 const initialEvents = [
   {
@@ -76,53 +76,52 @@ export const EventsPage = () => {
   }, []);
 
   return (
-    <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh]">
+    <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh] bg-[#090909]">
       <div className="w-full space-y-10">
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-          {eventsList.map((evt, i) => {
+          {eventsList.map((evt) => {
             return (
               <div 
                 key={evt.id} 
-                className="card-jaswanth-24 flex flex-col justify-between overflow-hidden group hover:border-orange-500/40 transition-all duration-300 animate-fadeInUp"
-                style={{ animationDelay: `${i * 0.08}s` }}
+                className="card-jaswanth-24 flex flex-col justify-between overflow-hidden group hover:border-[#F97316]"
               >
                 <div>
                   {/* Photo Container with Zoom & Click Preview */}
                   <div 
                     onClick={() => setSelectedImage(evt)}
-                    className="w-full h-48 rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 mb-5 relative cursor-pointer group/img"
+                    className="w-full h-48 rounded-2xl overflow-hidden bg-[#090909] border border-[#2F2F2F] mb-5 relative cursor-pointer group/img"
                   >
                     <img 
                       src={evt.image} 
                       alt={evt.title} 
-                      className="w-full h-full object-cover group-hover/img:scale-108 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-[2px]">
-                      <Eye className="w-4 h-4 text-orange-400" />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 flex items-center justify-center gap-2 text-white font-medium text-xs">
+                      <Eye className="w-4 h-4 text-[#F97316]" />
                       <span>Click to Expand</span>
                     </div>
-                    <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md border border-white/10 text-orange-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 bg-[#090909]/90 border border-[#2F2F2F] text-[#F97316] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
                       {evt.category}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors mb-2">
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#F97316] mb-2">
                     {evt.title}
                   </h3>
-                  <p className="text-gray-300 text-xs font-light leading-relaxed mb-4">
+                  <p className="text-[#B3B3B3] text-xs font-light leading-relaxed mb-4">
                     {evt.description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400 font-medium">
-                  <span className="flex items-center gap-1 text-gray-300">
-                    <Calendar className="w-3.5 h-3.5 text-orange-500" />
+                <div className="pt-3 border-t border-[#2F2F2F] flex items-center justify-between text-[11px] text-[#B3B3B3] font-medium">
+                  <span className="flex items-center gap-1 text-white">
+                    <Calendar className="w-3.5 h-3.5 text-[#F97316]" />
                     {evt.date}
                   </span>
-                  <span className="flex items-center gap-1 text-gray-400">
-                    <MapPin className="w-3.5 h-3.5 text-orange-500" />
+                  <span className="flex items-center gap-1 text-[#B3B3B3]">
+                    <MapPin className="w-3.5 h-3.5 text-[#F97316]" />
                     {evt.location}
                   </span>
                 </div>
@@ -133,11 +132,11 @@ export const EventsPage = () => {
 
         {/* Photo Lightbox Modal */}
         {selectedImage && (
-          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
-            <div className="relative max-w-4xl w-full bg-[#111111] border border-white/10 rounded-3xl p-4 sm:p-6 overflow-hidden shadow-2xl space-y-4">
+          <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 sm:p-8">
+            <div className="relative max-w-4xl w-full bg-[#1C1C1C] border border-[#2F2F2F] rounded-3xl p-4 sm:p-6 overflow-hidden shadow-2xl space-y-4">
               <button 
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full bg-black/60 border border-white/10 transition-colors z-10"
+                className="absolute top-4 right-4 text-[#B3B3B3] hover:text-white p-2 rounded-full bg-[#090909] border border-[#2F2F2F] z-10"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -151,9 +150,9 @@ export const EventsPage = () => {
               </div>
 
               <div className="space-y-1 text-left pt-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-orange-400">{selectedImage.category}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#F97316]">{selectedImage.category}</span>
                 <h3 className="text-xl font-bold text-white">{selectedImage.title}</h3>
-                <p className="text-xs text-gray-400 font-light">{selectedImage.description}</p>
+                <p className="text-xs text-[#B3B3B3] font-light">{selectedImage.description}</p>
               </div>
             </div>
           </div>

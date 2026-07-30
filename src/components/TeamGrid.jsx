@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { InstagramIcon, WhatsAppIcon } from './Icons';
-import { Shield, Users, Award, Sparkles } from 'lucide-react';
 
 export const TeamGrid = () => {
   const teamMembers = [
@@ -98,7 +97,7 @@ export const TeamGrid = () => {
   ];
 
   return (
-    <section id="team" className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center">
+    <section id="team" className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center bg-[#090909]">
       <div className="w-full space-y-10">
         
         {/* 11 Office Bearers Grid */}
@@ -109,13 +108,12 @@ export const TeamGrid = () => {
             return (
               <div 
                 key={index} 
-                className="card-jaswanth-24 flex flex-col justify-between group text-center sm:text-left hover:border-orange-500/40 transition-all duration-300 animate-fadeInUp w-full sm:w-[calc(50%-1.25rem)] md:w-[calc(33.333%-1.75rem)] lg:w-[calc(25%-1.875rem)]"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                className="card-jaswanth-24 flex flex-col justify-between group text-center sm:text-left hover:border-[#F97316] w-full sm:w-[calc(50%-1.25rem)] md:w-[calc(33.333%-1.75rem)] lg:w-[calc(25%-1.875rem)]"
               >
                 <div>
                   {/* Photo / Avatar */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-20 h-20 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shrink-0 shadow-md group-hover:scale-105 group-hover:border-orange-500/30 group-hover:shadow-[0_0_20px_rgba(255,69,0,0.15)] transition-all duration-300 relative">
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#090909] shrink-0 shadow-md relative">
                       {member.image && !imgError ? (
                         <img 
                           src={member.image} 
@@ -124,7 +122,7 @@ export const TeamGrid = () => {
                           onError={() => setImgError(true)}
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-500/20 via-neutral-900 to-neutral-950 text-orange-400 font-heading font-black text-xl">
+                        <div className="w-full h-full flex items-center justify-center bg-[#090909] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-xl">
                           {member.initials}
                         </div>
                       )}
@@ -136,7 +134,7 @@ export const TeamGrid = () => {
                           href={member.whatsapp}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+                          className="w-8 h-8 rounded-full bg-[#090909] border border-[#2F2F2F] flex items-center justify-center text-white hover:border-[#F97316]"
                           title="WhatsApp Contact"
                         >
                           <WhatsAppIcon className="w-4 h-4" />
@@ -147,7 +145,7 @@ export const TeamGrid = () => {
                           href={member.instagram}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition-all"
+                          className="w-8 h-8 rounded-full bg-[#090909] border border-[#2F2F2F] flex items-center justify-center text-white hover:border-[#F97316]"
                           title="Instagram Profile"
                         >
                           <InstagramIcon className="w-4 h-4" />
@@ -162,14 +160,14 @@ export const TeamGrid = () => {
                   </span>
 
                   {/* Name */}
-                  <h3 className="text-base sm:text-lg font-bold font-heading text-white leading-snug group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold font-heading text-white leading-snug group-hover:text-[#F97316]">
                     {member.name}
                   </h3>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-500 font-medium">
+                <div className="mt-4 pt-3 border-t border-[#2F2F2F] flex items-center justify-between text-[11px] text-[#B3B3B3] font-medium">
                   <span>NSRIET Mechanical</span>
-                  <span className="text-orange-400 font-bold uppercase tracking-widest text-[9px]">ESTD 2025</span>
+                  <span className="text-[#F97316] font-bold uppercase tracking-widest text-[9px]">ESTD 2025</span>
                 </div>
 
               </div>
