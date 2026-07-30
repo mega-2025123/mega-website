@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
   FileText,
@@ -21,24 +21,49 @@ import {
   Clock,
 } from 'lucide-react';
 
-const stats = [
-  { label: 'Total Blogs', value: '0', icon: FileText, href: '/admin/blogs', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
-  { label: 'Total Events', value: '0', icon: Calendar, href: '/admin/events', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
-  { label: 'Newsletters', value: '0', icon: Newspaper, href: '/admin/newsletters', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
-  { label: 'Gallery Images', value: '0', icon: Image, href: '/admin/gallery', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
-  { label: 'Announcements', value: '0', icon: Megaphone, href: '/admin/announcements', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
-  { label: 'Messages', value: '0', icon: Mail, href: '/admin/messages', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
-];
-
-const quickActions = [
-  { label: 'New Blog Post', icon: Plus, href: '/admin/blogs/new', desc: 'Publish an article' },
-  { label: 'Create Event', icon: Plus, href: '/admin/events/new', desc: 'Add workshop or visit' },
-  { label: 'Upload Newsletter', icon: Upload, href: '/admin/newsletters/new', desc: 'Add PDF edition' },
-  { label: 'Upload Gallery Photos', icon: Upload, href: '/admin/gallery', desc: 'Add photo highlights' },
-  { label: 'Post Announcement', icon: Plus, href: '/admin/announcements/new', desc: 'Broadcast update' },
-];
-
 export default function AdminDashboard() {
+  const [data, setData] = useState({
+    stats: {
+      totalBlogs: 0,
+      totalEvents: 0,
+      totalNewsletters: 0,
+      totalGalleryImages: 0,
+      totalAnnouncements: 0,
+      totalMessages: 0,
+      publishedCount: 0,
+      draftCount: 0,
+    },
+    recentBlogs: [],
+  });
+
+  useEffect(() => {
+    fetch('/api/dashboard')
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData?.stats) {
+          setData(resData);
+        }
+      })
+      .catch((err) => console.error('Dashboard fetch error:', err));
+  }, []);
+
+  const stats = [
+    { label: 'Total Blogs', value: String(data.stats.totalBlogs), icon: FileText, href: '/admin/blogs', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
+    { label: 'Total Events', value: String(data.stats.totalEvents), icon: Calendar, href: '/admin/events', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
+    { label: 'Newsletters', value: String(data.stats.totalNewsletters), icon: Newspaper, href: '/admin/newsletters', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
+    { label: 'Gallery Images', value: String(data.stats.totalGalleryImages), icon: Image, href: '/admin/gallery', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
+    { label: 'Announcements', value: String(data.stats.totalAnnouncements), icon: Megaphone, href: '/admin/announcements', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
+    { label: 'Messages', value: String(data.stats.totalMessages), icon: Mail, href: '/admin/messages', gradient: 'from-orange-500/20 to-amber-500/10', iconColor: 'text-orange-400' },
+  ];
+
+  const quickActions = [
+    { label: 'New Blog Post', icon: Plus, href: '/admin/blogs/new', desc: 'Publish an article' },
+    { label: 'Create Event', icon: Plus, href: '/admin/events/new', desc: 'Add workshop or visit' },
+    { label: 'Upload Newsletter', icon: Upload, href: '/admin/newsletters/new', desc: 'Add PDF edition' },
+    { label: 'Upload Gallery Photos', icon: Upload, href: '/admin/gallery', desc: 'Add photo highlights' },
+    { label: 'Post Announcement', icon: Plus, href: '/admin/announcements/new', desc: 'Broadcast update' },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto space-y-8 pb-12 text-white">
       {/* Page Header */}
@@ -107,10 +132,10 @@ export default function AdminDashboard() {
                 <Link
                   key={action.label}
                   href={action.href}
-                  className="group flex items-center justify-between p-3 rounded-2xl bg-[#18181c] border border-white/5 hover:border-orange-500/40 hover:bg-orange-500/100/10 transition-all duration-200"
+                  className="group flex items-center justify-between p-3 rounded-2xl bg-[#18181c] border border-white/5 hover:border-orange-500/40 hover:bg-orange-500/10 transition-all duration-200"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-orange-500/100/10 border border-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
@@ -137,17 +162,38 @@ export default function AdminDashboard() {
             <span className="text-[10px] font-mono text-gray-400">Live Feed</span>
           </div>
 
-          <div className="flex flex-col items-center justify-center py-12 text-center space-y-3">
-            <div className="w-14 h-14 rounded-2xl bg-[#1a1a1e] border border-white/10 flex items-center justify-center text-gray-500">
-              <TrendingUp className="w-7 h-7 text-orange-400/60" />
+          {data.recentBlogs.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center space-y-3">
+              <div className="w-14 h-14 rounded-2xl bg-[#1a1a1e] border border-white/10 flex items-center justify-center text-gray-500">
+                <TrendingUp className="w-7 h-7 text-orange-400/60" />
+              </div>
+              <div>
+                <p className="text-white text-sm font-semibold">No Activity Recorded Yet</p>
+                <p className="text-gray-400 text-xs font-light max-w-sm mt-1">
+                  New blog posts, events, and newsletter uploads will appear here in real-time.
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-white text-sm font-semibold">No Activity Recorded Yet</p>
-              <p className="text-gray-400 text-xs font-light max-w-sm mt-1">
-                New blog posts, events, and newsletter uploads will appear here in real-time.
-              </p>
+          ) : (
+            <div className="space-y-3">
+              {data.recentBlogs.map((blog: any) => (
+                <div key={blog.id} className="p-3 bg-[#18181c] border border-white/5 rounded-2xl flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-xs">
+                      B
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-white">{blog.title}</p>
+                      <p className="text-[10px] text-gray-400">Published · {new Date(blog.createdAt).toLocaleDateString()}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-bold uppercase">
+                    {blog.status}
+                  </span>
+                </div>
+              ))}
             </div>
-          </div>
+          )}
 
           <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs text-gray-400">
             <span className="flex items-center gap-1.5 text-gray-400">
@@ -172,12 +218,16 @@ export default function AdminDashboard() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-5 text-center space-y-1">
-              <p className="text-3xl font-extrabold text-emerald-400" style={{ fontFamily: "'Outfit', sans-serif" }}>0</p>
+              <p className="text-3xl font-extrabold text-emerald-400" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                {data.stats.publishedCount}
+              </p>
               <p className="text-xs font-semibold text-emerald-300/80 uppercase tracking-wider">Published Items</p>
             </div>
 
             <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-5 text-center space-y-1">
-              <p className="text-3xl font-extrabold text-amber-400" style={{ fontFamily: "'Outfit', sans-serif" }}>0</p>
+              <p className="text-3xl font-extrabold text-amber-400" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                {data.stats.draftCount}
+              </p>
               <p className="text-xs font-semibold text-amber-300/80 uppercase tracking-wider">Draft Items</p>
             </div>
           </div>
@@ -194,7 +244,7 @@ export default function AdminDashboard() {
           </div>
 
           <div className="flex flex-col items-center justify-center py-6 text-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-orange-500/100/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
+            <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
               <Clock className="w-5 h-5 text-orange-400" />
             </div>
             <p className="text-white text-xs font-semibold">Analytics Connection Pending</p>

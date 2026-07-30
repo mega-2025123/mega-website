@@ -1,63 +1,79 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Sparkles, X, Eye } from 'lucide-react';
+
+const initialEvents = [
+  {
+    id: 'jindal',
+    title: 'Industrial Visit — Jindal Steel Plant',
+    date: 'NSRIET Academic Calendar 2025',
+    category: 'Industrial Exposure',
+    location: 'Jindal Steel Plant, Vizag',
+    image: '/assets/Industrial Visit-Jindhal.jpg',
+    description: 'Hands-on industrial visit to Jindal Steel Plant, gaining first-hand knowledge of heavy manufacturing, blast furnaces, and industrial quality control systems.'
+  },
+  {
+    id: '3d-printing',
+    title: '3D Printing & Additive Manufacturing Workshop',
+    date: 'Technical Workshop 2025',
+    category: 'Technical Workshops',
+    location: 'Mechanical CAD Lab, NSRIET',
+    image: '/assets/3D-Printing.jpg',
+    description: 'Interactive workshop exploring rapid prototyping, FDM 3D printing, slicing software, and CAD model optimization.'
+  },
+  {
+    id: 'guest-lecture',
+    title: 'Expert Guest Lecture on Industrial Robotics',
+    date: 'Guest Symposium 2025',
+    category: 'Technical Workshops',
+    location: 'NSRIET Auditorium',
+    image: '/assets/Guest Lecture.jpg',
+    description: 'Insightful lecture delivered by industry veterans on automated manufacturing lines, CNC programming, and Industry 4.0 standards.'
+  },
+  {
+    id: 'freshers',
+    title: 'MEGA Freshers & Guild Orientation',
+    date: 'Guild Flagship Event',
+    category: 'Orientation & Guild',
+    location: 'Main Campus Quadrangle',
+    image: '/assets/Freshers.jpg',
+    description: 'Welcoming the new batch of mechanical engineering students into the guild with interactive leadership speeches and team-building activities.'
+  },
+  {
+    id: 'nss',
+    title: 'NSS Campus & Cleanliness Drive',
+    date: 'Social Responsibility Drive',
+    category: 'Orientation & Guild',
+    location: 'NSRIET Campus Grounds',
+    image: '/assets/NSS.jpeg',
+    description: 'Social service drive organized by mechanical engineering students promoting environmental sustainability and green engineering principles.'
+  }
+];
 
 export const EventsPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [eventsList, setEventsList] = useState(initialEvents);
 
-  const events = [
-    {
-      id: 'jindal',
-      title: 'Industrial Visit — Jindal Steel Plant',
-      date: 'NSRIET Academic Calendar 2025',
-      category: 'Industrial Exposure',
-      catId: 'industrial',
-      location: 'Jindal Steel Plant, Vizag',
-      image: '/assets/Industrial Visit-Jindhal.jpg',
-      description: 'Hands-on industrial visit to Jindal Steel Plant, gaining first-hand knowledge of heavy manufacturing, blast furnaces, and industrial quality control systems.'
-    },
-    {
-      id: '3d-printing',
-      title: '3D Printing & Additive Manufacturing Workshop',
-      date: 'Technical Workshop 2025',
-      category: 'Technical Workshops',
-      catId: 'workshops',
-      location: 'Mechanical CAD Lab, NSRIET',
-      image: '/assets/3D-Printing.jpg',
-      description: 'Interactive workshop exploring rapid prototyping, FDM 3D printing, slicing software, and CAD model optimization.'
-    },
-    {
-      id: 'guest-lecture',
-      title: 'Expert Guest Lecture on Industrial Robotics',
-      date: 'Guest Symposium 2025',
-      category: 'Technical Workshops',
-      catId: 'workshops',
-      location: 'NSRIET Auditorium',
-      image: '/assets/Guest Lecture.jpg',
-      description: 'Insightful lecture delivered by industry veterans on automated manufacturing lines, CNC programming, and Industry 4.0 standards.'
-    },
-    {
-      id: 'freshers',
-      title: 'MEGA Freshers & Guild Orientation',
-      date: 'Guild Flagship Event',
-      category: 'Orientation & Guild',
-      catId: 'guild',
-      location: 'Main Campus Quadrangle',
-      image: '/assets/Freshers.jpg',
-      description: 'Welcoming the new batch of mechanical engineering students into the guild with interactive leadership speeches and team-building activities.'
-    },
-    {
-      id: 'nss',
-      title: 'NSS Campus & Cleanliness Drive',
-      date: 'Social Responsibility Drive',
-      category: 'Orientation & Guild',
-      catId: 'guild',
-      location: 'NSRIET Campus Grounds',
-      image: '/assets/NSS.jpeg',
-      description: 'Social service drive organized by mechanical engineering students promoting environmental sustainability and green engineering principles.'
-    }
-  ];
+  useEffect(() => {
+    fetch('/api/events')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped = data.map((evt) => ({
+            id: evt.id,
+            title: evt.name,
+            date: evt.date ? new Date(evt.date).toLocaleDateString() : 'Upcoming',
+            category: evt.status || 'Event',
+            location: evt.venue || 'NSRIET Campus',
+            image: evt.banner || '/assets/3D-Printing.jpg',
+            description: evt.description || '',
+          }));
+          setEventsList(mapped);
+        }
+      })
+      .catch((err) => console.error('Events fetch error:', err));
+  }, []);
 
   return (
     <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh]">
@@ -65,9 +81,7 @@ export const EventsPage = () => {
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-          {events.map((evt, i) => {
-            const [imgErr, setImgErr] = useState(false);
-
+          {eventsList.map((evt, i) => {
             return (
               <div 
                 key={evt.id} 
@@ -77,27 +91,18 @@ export const EventsPage = () => {
                 <div>
                   {/* Photo Container with Zoom & Click Preview */}
                   <div 
-                    onClick={() => !imgErr && setSelectedImage(evt)}
+                    onClick={() => setSelectedImage(evt)}
                     className="w-full h-48 rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 mb-5 relative cursor-pointer group/img"
                   >
-                    {!imgErr ? (
-                      <>
-                        <img 
-                          src={evt.image} 
-                          alt={evt.title} 
-                          className="w-full h-full object-cover group-hover/img:scale-108 transition-transform duration-500"
-                          onError={() => setImgErr(true)}
-                        />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-[2px]">
-                          <Eye className="w-4 h-4 text-orange-400" />
-                          <span>Click to Expand</span>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-orange-400 font-bold text-base bg-[#161616] p-4 text-center">
-                        {evt.title}
-                      </div>
-                    )}
+                    <img 
+                      src={evt.image} 
+                      alt={evt.title} 
+                      className="w-full h-full object-cover group-hover/img:scale-108 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-[2px]">
+                      <Eye className="w-4 h-4 text-orange-400" />
+                      <span>Click to Expand</span>
+                    </div>
                     <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md border border-white/10 text-orange-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
                       {evt.category}
                     </span>

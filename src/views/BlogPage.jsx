@@ -1,24 +1,78 @@
 'use client';
 
-import React from 'react';
-import { BookOpen } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Calendar, Tag, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export const BlogPage = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/blogs')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setBlogs(data);
+        }
+      })
+      .catch((err) => console.error('Fetch blogs error:', err))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex flex-col items-center justify-center min-h-[60vh]">
-      <div className="w-full max-w-3xl">
-        <div className="card-jaswanth-24 border-dashed border-orange-500/20 text-center flex flex-col items-center justify-center p-12 bg-[#111111]/40">
-          <div className="w-14 h-14 rounded-2xl bg-[#111111] border border-orange-500/30 flex items-center justify-center mb-5 text-orange-400 shadow-md">
-            <BookOpen className="w-7 h-7 animate-pulse" />
+      {blogs.length === 0 ? (
+        <div className="w-full max-w-3xl">
+          <div className="card-jaswanth-24 border-dashed border-orange-500/20 text-center flex flex-col items-center justify-center p-12 bg-[#111111]/40">
+            <div className="w-14 h-14 rounded-2xl bg-[#111111] border border-orange-500/30 flex items-center justify-center mb-5 text-orange-400 shadow-md">
+              <BookOpen className="w-7 h-7 animate-pulse" />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold font-heading text-white tracking-wider uppercase mb-3">
+              NO BLOG POSTS YET
+            </h3>
+            <p className="text-gray-300 text-xs sm:text-sm max-w-md font-light leading-relaxed mx-auto">
+              Interesting articles, stories, and insights from our community will be published here soon. Stay tuned!
+            </p>
           </div>
-          <h3 className="text-xl sm:text-2xl font-bold font-heading text-white tracking-wider uppercase mb-3">
-            NO BLOG POSTS YET
-          </h3>
-          <p className="text-gray-300 text-xs sm:text-sm max-w-md font-light leading-relaxed mx-auto">
-            Interesting articles, stories, and insights from our community will be published here soon. Stay tuned!
-          </p>
         </div>
-      </div>
+      ) : (
+        <div className="w-full space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogs.map((item) => (
+              <div key={item.id} className="card-jaswanth-24 overflow-hidden flex flex-col justify-between group hover:border-orange-500/40 transition-all">
+                <div>
+                  {item.coverImage && (
+                    <div className="w-full h-44 rounded-2xl overflow-hidden bg-black mb-4">
+                      <img src={item.coverImage} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                  )}
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[11px] text-gray-400">
+                      <span className="text-orange-400 font-bold uppercase tracking-wider">{item.category || 'Article'}</span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3 text-orange-400" />
+                        {new Date(item.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors">{item.title}</h3>
+                    {item.summary && (
+                      <p className="text-xs text-gray-300 font-light leading-relaxed line-clamp-3">{item.summary}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-orange-400 mt-4">
+                  <span>Read Article</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
