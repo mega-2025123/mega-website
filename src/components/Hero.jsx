@@ -17,20 +17,16 @@ export const Hero = () => {
           <span>WELCOME TO OUR ASSOCIATION • ESTD 2025</span>
         </div>
 
-        {/* Big Guild Video Emblem in Continuous Loop */}
+        {/* Big Guild White Text Logo Image */}
         <div className="relative group cursor-pointer my-6 md:my-10 flex justify-center items-center">
-          <video
-            src="/assets/V.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-label="MEGA Guild Video Emblem"
+          <img 
+            src="/assets/Logo-Home page(White).png" 
+            alt="MEGA Guild White Text Logo" 
             className="w-64 h-64 sm:w-80 sm:h-80 md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </div>
 
-        {/* Title: Separated clearly from video and subtitle */}
+        {/* Title: Separated clearly from logo and subtitle */}
         <div className="space-y-4 w-full max-w-5xl mt-6 md:mt-10 mb-6">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-normal text-white leading-tight">
             MECHANICAL ENGINEERING
