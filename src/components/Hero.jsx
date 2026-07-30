@@ -9,20 +9,20 @@ export const Hero = () => {
 
   return (
     <section id="home" className="w-full min-h-[calc(100vh-6rem)] flex items-center justify-center pt-28 md:pt-36 pb-28 px-4 sm:px-6 md:px-12 relative text-center overflow-hidden bg-[#090909]">
-      <div className="max-w-6xl mx-auto w-full flex flex-col items-center text-center z-10 space-y-12">
+      <div className="max-w-6xl mx-auto w-full flex flex-col items-center text-center z-10">
         {/* Spacer to push content below floating navbar */}
-        <div className="h-16 md:h-24 shrink-0" />
+        <div className="h-12 md:h-20 shrink-0" />
         
-        {/* Tracking Badge with wide spacing */}
-        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.25em] shadow-md mb-2">
+        {/* Tracking Badge with generous bottom separation */}
+        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.25em] shadow-md mb-10 md:mb-14">
           <Sparkles className="w-4 h-4 text-[#F97316]" />
           <span>WELCOME TO OUR ASSOCIATION • ESTD 2025</span>
         </div>
 
-        {/* Logo Emblem with extra padding and generous spacing */}
-        <div className="relative group cursor-pointer my-4">
+        {/* Logo Emblem with clear top & bottom separation */}
+        <div className="relative group cursor-pointer my-6 md:my-10">
           <div className="relative z-10">
-            <div className="w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] p-5 flex items-center justify-center shadow-2xl group-hover:border-[#F97316]">
+            <div className="w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] p-5 flex items-center justify-center shadow-2xl group-hover:border-[#F97316]">
               {!heroImgError ? (
                 <img 
                   src="/assets/Logo.jpg" 
@@ -39,8 +39,8 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Title: Normal/Wide word & letter spacing */}
-        <div className="space-y-4 w-full max-w-5xl my-4">
+        {/* Title: Separated clearly from logo and subtitle */}
+        <div className="space-y-4 w-full max-w-5xl mt-8 md:mt-12 mb-6">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-normal text-white leading-tight">
             MECHANICAL ENGINEERING
           </h1>
@@ -61,7 +61,7 @@ export const Hero = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-8 w-full sm:w-auto">
           <Link href="/about" className="btn-jaswanth-primary group w-full max-w-[260px] sm:w-auto px-8 py-3.5 text-base">
             <span>Explore Guild</span>
             <ArrowRight className="w-4 h-4" />
