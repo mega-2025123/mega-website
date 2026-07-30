@@ -28,9 +28,9 @@ export const Hero = () => {
             <div className="w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-[#111111]/90 border border-orange-500/30 p-6 flex items-center justify-center shadow-[0_0_50px_rgba(255,69,0,0.25)] group-hover:border-orange-500/60 group-hover:shadow-[0_0_70px_rgba(255,69,0,0.45)] transition-all duration-500 backdrop-blur-md">
               {!heroImgError ? (
                 <img 
-                  src="/assets/Logo.png" 
+                  src="/assets/Logo.jpg" 
                   alt="MEGA Guild Logo" 
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(255,69,0,0.4)] group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover rounded-full filter drop-shadow-[0_0_20px_rgba(255,69,0,0.4)] group-hover:scale-105 transition-all duration-500"
                   onError={() => setHeroImgError(true)}
                 />
               ) : (

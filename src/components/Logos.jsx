@@ -10,9 +10,9 @@ export const MegaLogo = ({ className = "w-10 h-10", showText = true }) => {
     <div className="flex items-center gap-3">
       {!imgError ? (
         <img 
-          src="/assets/Logo.png" 
+          src="/assets/Logo.jpg" 
           alt="MEGA Guild Logo" 
-          className="w-10 h-10 object-contain rounded-full border border-orange-500/40 bg-black/60 p-0.5"
+          className="w-10 h-10 object-cover rounded-full border border-orange-500/40 bg-black/60 p-0.5"
           onError={() => setImgError(true)}
         />
       ) : (
