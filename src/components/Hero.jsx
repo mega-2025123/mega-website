@@ -1,11 +1,28 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Users, Sparkles } from 'lucide-react';
 
 export const Hero = () => {
-  const [heroImgError, setHeroImgError] = useState(false);
+  const videoRef = useRef(null);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    let animId;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const checkLoop = () => {
+      if (video && video.currentTime >= 0.5) {
+        video.currentTime = 0;
+      }
+      animId = requestAnimationFrame(checkLoop);
+    };
+
+    animId = requestAnimationFrame(checkLoop);
+    return () => cancelAnimationFrame(animId);
+  }, []);
 
   return (
     <section id="home" className="w-full min-h-[calc(100vh-6rem)] flex items-center justify-center pt-28 md:pt-36 pb-28 px-4 sm:px-6 md:px-12 relative text-center overflow-hidden bg-[#090909]">
@@ -19,25 +36,29 @@ export const Hero = () => {
           <span>WELCOME TO OUR ASSOCIATION • ESTD 2025</span>
         </div>
 
-        {/* Big Guild Logo Image (No Circle Wrapper) */}
+        {/* Guild Video Emblem (Loop 0.0s to 0.5s) */}
         <div className="relative group cursor-pointer my-6 md:my-10 flex justify-center items-center">
-          {!heroImgError ? (
-            <img 
-              src="/assets/Logo.png" 
-              alt="MEGA Guild Logo" 
+          {!videoError ? (
+            <video
+              ref={videoRef}
+              src="/assets/Video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              onError={() => setVideoError(true)}
               className="w-64 h-64 sm:w-80 sm:h-80 md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
-              onError={() => setHeroImgError(true)}
             />
           ) : (
             <img 
-              src="/assets/Logo-Home Page.png" 
+              src="/assets/Logo.png" 
               alt="MEGA Guild Logo" 
               className="w-64 h-64 sm:w-80 sm:h-80 md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
             />
           )}
         </div>
 
-        {/* Title: Separated clearly from logo and subtitle */}
+        {/* Title */}
         <div className="space-y-4 w-full max-w-5xl mt-6 md:mt-10 mb-6">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-normal text-white leading-tight">
             MECHANICAL ENGINEERING
@@ -47,7 +68,7 @@ export const Hero = () => {
           </h1>
         </div>
 
-        {/* Subtitle with generous spacing */}
+        {/* Subtitle */}
         <h2 className="text-base sm:text-xl md:text-2xl text-[#B3B3B3] font-light max-w-3xl leading-relaxed my-4">
           The official student guild of Mechanical Engineering at&nbsp;
           <span className="text-white font-semibold">N S Raju Institute of Engineering and Technology</span>
