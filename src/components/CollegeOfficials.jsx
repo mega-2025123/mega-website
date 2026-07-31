@@ -28,11 +28,11 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 w-full flex justify-center bg-[#090909]">
+    <section className="py-20 md:py-28 px-4 sm:px-6 md:px-12 w-full flex justify-center bg-[#090909]">
       <div className="max-w-6xl w-full">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-3 mb-12">
+        <div className="flex flex-col items-center text-center space-y-3 mb-14">
           <span className="role-tag">LEADERSHIP VISION</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
             Our College <span className="text-[#F97316]">Officials</span>
@@ -43,26 +43,26 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
           <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
         </div>
 
-        {/* 2 Officials Grid - No Card Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
+        {/* 2 Officials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 w-full">
           {officials.map((official) => {
             const [imgErr, setImgErr] = useState(false);
 
             return (
               <div 
                 key={official.id}
-                className="flex flex-col justify-between text-center sm:text-left group border-t border-[#2F2F2F] pt-6"
+                className="flex flex-col justify-between text-center sm:text-left group bg-[#141414]/30 border border-[#2F2F2F] rounded-2xl p-6 sm:p-8"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-5">
                     <span className="role-tag">{official.role}</span>
-                    <div className="p-1.5 rounded-lg bg-[#141414] text-[#F97316]">
+                    <div className="p-2 rounded-xl bg-[#141414] border border-[#2F2F2F] text-[#F97316]">
                       <Award className="w-4 h-4" />
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-[#090909] shrink-0 relative">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-[#090909] border border-[#2F2F2F] shrink-0 relative">
                       {!imgErr ? (
                         <img 
                           src={official.image}
@@ -92,7 +92,7 @@ export const CollegeOfficials = ({ openOfficialMessage }) => {
                 </div>
 
                 {official.message && openOfficialMessage && (
-                  <div className="pt-4">
+                  <div className="pt-4 border-t border-[#2F2F2F]">
                     <button
                       onClick={() => openOfficialMessage(official)}
                       className="btn-jaswanth-secondary w-full justify-center text-xs py-3"

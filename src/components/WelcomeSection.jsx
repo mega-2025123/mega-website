@@ -29,8 +29,8 @@ export const WelcomeSection = () => {
   ];
 
   return (
-    <section id="welcome" className="w-full pt-16 pb-16 md:pb-24 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
-      <div className="max-w-6xl w-full space-y-10 text-center">
+    <section id="welcome" className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
+      <div className="max-w-6xl w-full space-y-12 text-center">
         
         {/* Section Header */}
         <div className="flex flex-col items-center space-y-3">
@@ -45,8 +45,8 @@ export const WelcomeSection = () => {
         </div>
 
         {/* Featured Text */}
-        <div className="space-y-4 max-w-3xl mx-auto py-4">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#141414] border border-[#F97316]/40 px-3.5 py-1 rounded-full">
+        <div className="space-y-5 max-w-3xl mx-auto py-2">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#141414] border border-[#F97316]/40 px-4 py-1.5 rounded-full">
             ESTABLISHED 2025 • NSRIET
           </span>
           <p className="text-[#B3B3B3] font-light text-lg md:text-xl leading-relaxed">
@@ -54,11 +54,11 @@ export const WelcomeSection = () => {
           </p>
         </div>
 
-        {/* 4 Feature Pillars Grid - No Card Boxes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left py-6 border-t border-[#2F2F2F]">
+        {/* 4 Feature Pillars Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-left pt-8 pb-4 border-t border-[#2F2F2F]">
           {pillars.map((p, i) => (
             <div key={i} className="space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#141414] border border-[#2F2F2F] flex items-center justify-center">
+              <div className="w-11 h-11 rounded-xl bg-[#141414] border border-[#2F2F2F] flex items-center justify-center">
                 {p.icon}
               </div>
               <h3 className="text-base font-bold text-white">
@@ -72,8 +72,8 @@ export const WelcomeSection = () => {
         </div>
 
         {/* Bottom Link */}
-        <div className="pt-2 flex justify-center">
-          <Link href="/about" className="btn-jaswanth-secondary group">
+        <div className="pt-6 flex justify-center">
+          <Link href="/about" className="btn-jaswanth-secondary group px-8 py-3.5 text-xs md:text-sm">
             <span>Learn More About Our Guild</span>
             <ArrowRight className="w-4 h-4 text-[#F97316]" />
           </Link>

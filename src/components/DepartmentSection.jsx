@@ -15,12 +15,12 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
   const [balaErr, setBalaErr] = useState(false);
 
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 w-full flex justify-center bg-[#090909]">
-      <div className="max-w-6xl w-full space-y-20">
+    <section className="py-20 md:py-28 px-4 sm:px-6 md:px-12 w-full flex justify-center bg-[#090909]">
+      <div className="max-w-6xl w-full space-y-24">
         
         {/* --- 1. Head of Department --- */}
         <div className="w-full">
-          <div className="flex flex-col items-center text-center space-y-3 mb-10">
+          <div className="flex flex-col items-center text-center space-y-3 mb-12">
             <span className="role-tag">DEPARTMENT LEADERSHIP</span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
               Head of <span className="text-[#F97316]">Department</span>
@@ -28,8 +28,8 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
             <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
           </div>
 
-          <div className="border-t border-[#2F2F2F] pt-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left group">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden bg-[#090909] shrink-0 relative">
+          <div className="bg-[#141414]/30 border border-[#2F2F2F] rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left group">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden bg-[#090909] border border-[#2F2F2F] shrink-0 relative">
               {!hodErr ? (
                 <img 
                   src="/assets/Hod.jpg" 
@@ -92,12 +92,12 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
             <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-[#2F2F2F] pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {facultyList.map((faculty, idx) => {
               const [fErr, setFErr] = useState(false);
               return (
-                <div key={idx} className="flex flex-col items-center text-center group">
-                  <div className="w-24 h-24 rounded-2xl overflow-hidden bg-[#090909] mb-4 shrink-0 relative">
+                <div key={idx} className="bg-[#141414]/30 border border-[#2F2F2F] rounded-2xl p-6 flex flex-col items-center text-center group">
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden bg-[#090909] border border-[#2F2F2F] mb-4 shrink-0 relative">
                     {faculty.image && !fErr ? (
                       <img 
                         src={faculty.image} 
@@ -127,9 +127,9 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
         </div>
 
         {/* --- 3. Ex Student Club Co-Ordinator --- */}
-        <div className="w-full border-t border-[#2F2F2F] pt-8">
-          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left group">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-[#090909] shrink-0 relative">
+        <div className="w-full">
+          <div className="bg-[#141414]/30 border border-[#2F2F2F] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left group">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-[#090909] border border-[#2F2F2F] shrink-0 relative">
               {!balaErr ? (
                 <img 
                   src="/assets/Bala Mam.jpg" 
@@ -146,7 +146,7 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
 
             <div className="space-y-2">
               <div className="inline-flex items-center gap-1.5 text-[#F97316] font-extrabold text-xs tracking-widest uppercase font-heading">
-                <Star className="w-3.5 h-3.5" />
+                <Star className="w-3.5 h-3.5 text-[#F97316]" />
                 Ex Student Club Co-Ordinator
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-[#F97316]">
