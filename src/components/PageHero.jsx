@@ -5,8 +5,8 @@ import React from 'react';
 export const PageHero = ({ title, subtitle, accentWord }) => {
   return (
     <div className="pt-24 md:pt-28 pb-6 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full relative bg-[#090909]">
-      {/* Spacer to push headers below floating navbar */}
-      <div className="h-16 md:h-24" />
+      {/* Generous spacer to push headers below floating navbar */}
+      <div className="h-24 sm:h-28 md:h-36 shrink-0" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* High-Contrast Hero Badge */}
