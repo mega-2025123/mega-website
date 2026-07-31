@@ -7,10 +7,10 @@ import { Calendar, ArrowRight, Clock } from 'lucide-react';
 export const UpcomingEvents = () => {
   return (
     <section className="w-full py-20 md:py-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
-      <div className="max-w-6xl w-full space-y-12">
+      <div className="max-w-6xl w-full space-y-10">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#141414] border border-[#F97316]/40 text-[#F97316] text-xs font-bold uppercase tracking-wider">
               <Calendar className="w-3.5 h-3.5" />
@@ -30,9 +30,9 @@ export const UpcomingEvents = () => {
           </Link>
         </div>
 
-        {/* Unboxed Text Notice */}
-        <div className="border-t border-b border-[#2F2F2F] text-center flex flex-col items-center justify-center py-16">
-          <div className="w-12 h-12 rounded-2xl bg-[#141414] flex items-center justify-center mb-4 text-[#F97316]">
+        {/* Clean Container Notice */}
+        <div className="bg-[#141414]/20 border border-[#2F2F2F] rounded-3xl text-center flex flex-col items-center justify-center p-10 md:p-14">
+          <div className="w-12 h-12 rounded-2xl bg-[#141414] flex items-center justify-center mb-4 text-[#F97316] border border-[#2F2F2F]">
             <Clock className="w-6 h-6" />
           </div>
           <h3 className="text-lg md:text-xl font-bold font-heading text-white tracking-widest uppercase mb-2">

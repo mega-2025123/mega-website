@@ -7,7 +7,7 @@ import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 export const LatestUpdates = () => {
   return (
     <section className="w-full py-20 md:py-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
-      <div className="max-w-6xl w-full border-t border-b border-[#2F2F2F] py-14 md:py-16">
+      <div className="max-w-6xl w-full bg-[#141414]/20 border border-[#2F2F2F] rounded-3xl p-8 md:p-12">
         
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 md:gap-12">
           

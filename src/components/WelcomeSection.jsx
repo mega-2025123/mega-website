@@ -29,7 +29,7 @@ export const WelcomeSection = () => {
   ];
 
   return (
-    <section id="welcome" className="w-full py-24 md:py-32 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
+    <section id="welcome" className="w-full py-20 md:py-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
       <div className="max-w-6xl w-full space-y-12 text-center">
         
         {/* Section Header */}
@@ -41,11 +41,11 @@ export const WelcomeSection = () => {
           <p className="text-[#B3B3B3] text-base md:text-lg tracking-wide font-light max-w-2xl">
             Driven by curiosity. Defined by engineering precision.
           </p>
-          <div className="section-divider-line mt-2" />
+          <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
         </div>
 
         {/* Featured Text */}
-        <div className="space-y-5 max-w-3xl mx-auto py-2">
+        <div className="space-y-4 max-w-3xl mx-auto py-2">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#141414] border border-[#F97316]/40 px-4 py-1.5 rounded-full">
             ESTABLISHED 2025 • NSRIET
           </span>
@@ -55,9 +55,9 @@ export const WelcomeSection = () => {
         </div>
 
         {/* 4 Feature Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-left pt-8 pb-4 border-t border-[#2F2F2F]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-left pt-6 pb-6">
           {pillars.map((p, i) => (
-            <div key={i} className="space-y-3">
+            <div key={i} className="space-y-3 bg-[#141414]/20 border border-[#2F2F2F] rounded-2xl p-6 hover:border-[#F97316] transition-all">
               <div className="w-11 h-11 rounded-xl bg-[#141414] border border-[#2F2F2F] flex items-center justify-center">
                 {p.icon}
               </div>
@@ -72,7 +72,7 @@ export const WelcomeSection = () => {
         </div>
 
         {/* Bottom Link */}
-        <div className="pt-6 flex justify-center">
+        <div className="pt-4 flex justify-center">
           <Link href="/about" className="btn-jaswanth-secondary group px-8 py-3.5 text-xs md:text-sm">
             <span>Learn More About Our Guild</span>
             <ArrowRight className="w-4 h-4 text-[#F97316]" />
