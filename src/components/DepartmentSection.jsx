@@ -28,17 +28,17 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
             <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
           </div>
 
-          <div className="card-jaswanth-24 flex flex-col md:flex-row items-center gap-8 text-center md:text-left group hover:border-[#F97316]">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#090909] shrink-0 shadow-2xl relative">
+          <div className="border-t border-[#2F2F2F] pt-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left group">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden bg-[#090909] shrink-0 relative">
               {!hodErr ? (
                 <img 
                   src="/assets/Hod.jpg" 
                   alt="Mr. B. Ramanjaneyulu (HOD)"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-2xl"
                   onError={() => setHodErr(true)}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-[#090909] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-4xl">
+                <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl text-[#F97316] font-heading font-black text-4xl">
                   BR
                 </div>
               )}
@@ -56,7 +56,7 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
               </p>
 
               {openOfficialMessage && (
-                <div className="pt-4 border-t border-[#2F2F2F] flex justify-center md:justify-start">
+                <div className="pt-4 flex justify-center md:justify-start">
                   <button
                     onClick={() => openOfficialMessage({
                       id: 'hod',
@@ -92,21 +92,21 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
             <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-[#2F2F2F] pt-8">
             {facultyList.map((faculty, idx) => {
               const [fErr, setFErr] = useState(false);
               return (
-                <div key={idx} className="card-jaswanth-24 flex flex-col items-center text-center group hover:border-[#F97316]">
-                  <div className="w-24 h-24 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#090909] mb-4 shrink-0 shadow-md relative">
+                <div key={idx} className="flex flex-col items-center text-center group">
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden bg-[#090909] mb-4 shrink-0 relative">
                     {faculty.image && !fErr ? (
                       <img 
                         src={faculty.image} 
                         alt={faculty.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-2xl"
                         onError={() => setFErr(true)}
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-[#090909] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-xl">
+                      <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl text-[#F97316] font-heading font-black text-xl">
                         {faculty.initials}
                       </div>
                     )}
@@ -127,18 +127,18 @@ export const DepartmentSection = ({ openOfficialMessage }) => {
         </div>
 
         {/* --- 3. Ex Student Club Co-Ordinator --- */}
-        <div className="w-full">
-          <div className="card-jaswanth-24 fire-border-left flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left group hover:border-[#F97316]">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-[#2F2F2F] bg-[#090909] shrink-0 shadow-xl relative">
+        <div className="w-full border-t border-[#2F2F2F] pt-8">
+          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left group">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-[#090909] shrink-0 relative">
               {!balaErr ? (
                 <img 
                   src="/assets/Bala Mam.jpg" 
                   alt="Ms. M. V. Baleswari"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-2xl"
                   onError={() => setBalaErr(true)}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-[#090909] border border-[#2F2F2F] text-[#F97316] font-heading font-black text-2xl">
+                <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl text-[#F97316] font-heading font-black text-2xl">
                   MB
                 </div>
               )}

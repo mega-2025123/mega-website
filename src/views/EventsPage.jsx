@@ -79,30 +79,30 @@ export const EventsPage = () => {
     <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full flex justify-center min-h-[60vh] bg-[#090909]">
       <div className="w-full space-y-10">
 
-        {/* Events Grid */}
+        {/* Events Grid - No Card Boxes */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {eventsList.map((evt) => {
             return (
               <div 
                 key={evt.id} 
-                className="card-jaswanth-24 flex flex-col justify-between overflow-hidden group hover:border-[#F97316]"
+                className="border-t border-[#2F2F2F] pt-6 flex flex-col justify-between overflow-hidden group"
               >
                 <div>
                   {/* Photo Container with Zoom & Click Preview */}
                   <div 
                     onClick={() => setSelectedImage(evt)}
-                    className="w-full h-48 rounded-2xl overflow-hidden bg-[#090909] border border-[#2F2F2F] mb-5 relative cursor-pointer group/img"
+                    className="w-full h-48 rounded-2xl overflow-hidden bg-[#090909] mb-5 relative cursor-pointer group/img"
                   >
                     <img 
                       src={evt.image} 
                       alt={evt.title} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-2xl"
                     />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 flex items-center justify-center gap-2 text-white font-medium text-xs">
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 flex items-center justify-center gap-2 text-white font-medium text-xs rounded-2xl">
                       <Eye className="w-4 h-4 text-[#F97316]" />
                       <span>Click to Expand</span>
                     </div>
-                    <span className="absolute top-3 left-3 bg-[#090909]/90 border border-[#2F2F2F] text-[#F97316] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 bg-[#141414] border border-[#F97316]/40 text-[#F97316] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
                       {evt.category}
                     </span>
                   </div>
@@ -133,7 +133,7 @@ export const EventsPage = () => {
         {/* Photo Lightbox Modal */}
         {selectedImage && (
           <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 sm:p-8">
-            <div className="relative max-w-4xl w-full bg-[#1C1C1C] border border-[#2F2F2F] rounded-3xl p-4 sm:p-6 overflow-hidden shadow-2xl space-y-4">
+            <div className="relative max-w-4xl w-full bg-[#141414] border border-[#2F2F2F] rounded-3xl p-4 sm:p-6 overflow-hidden shadow-2xl space-y-4">
               <button 
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 text-[#B3B3B3] hover:text-white p-2 rounded-full bg-[#090909] border border-[#2F2F2F] z-10"

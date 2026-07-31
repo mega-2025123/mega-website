@@ -29,11 +29,11 @@ export const WelcomeSection = () => {
   ];
 
   return (
-    <section id="welcome" className="w-full pt-20 pb-20 md:pb-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
-      <div className="max-w-6xl w-full space-y-12">
+    <section id="welcome" className="w-full pt-16 pb-16 md:pb-24 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
+      <div className="max-w-6xl w-full space-y-10 text-center">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center space-y-3">
+        <div className="flex flex-col items-center space-y-3">
           <span className="role-tag">DISCOVER MEGA</span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
             Welcome to Our <span className="text-[#F97316]">Association</span>
@@ -44,52 +44,39 @@ export const WelcomeSection = () => {
           <div className="section-divider-line mt-2" />
         </div>
 
-        {/* Main Featured Banner Card */}
-        <div className="card-jaswanth-24 text-center">
-          <div className="flex flex-col space-y-8">
-            
-            <div className="space-y-4 max-w-3xl mx-auto">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#090909] border border-[#2F2F2F] px-3.5 py-1 rounded-full">
-                ESTABLISHED 2025 • NSRIET
-              </span>
-              <p className="text-[#B3B3B3] font-light text-lg md:text-xl leading-relaxed">
-                Welcome to the official portal of <strong className="text-white font-semibold">MEGA (Mechanical Engineering Guild Association)</strong>. Here, you'll find real-time updates on upcoming events, industrial workshops, and highlights from our technical achievements. We invite you to explore and stay connected!
+        {/* Featured Text */}
+        <div className="space-y-4 max-w-3xl mx-auto py-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#141414] border border-[#F97316]/40 px-3.5 py-1 rounded-full">
+            ESTABLISHED 2025 • NSRIET
+          </span>
+          <p className="text-[#B3B3B3] font-light text-lg md:text-xl leading-relaxed">
+            Welcome to the official portal of <strong className="text-white font-semibold">MEGA (Mechanical Engineering Guild Association)</strong>. Here, you'll find real-time updates on upcoming events, industrial workshops, and highlights from our technical achievements. We invite you to explore and stay connected!
+          </p>
+        </div>
+
+        {/* 4 Feature Pillars Grid - No Card Boxes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left py-6 border-t border-[#2F2F2F]">
+          {pillars.map((p, i) => (
+            <div key={i} className="space-y-3">
+              <div className="w-10 h-10 rounded-lg bg-[#141414] border border-[#2F2F2F] flex items-center justify-center">
+                {p.icon}
+              </div>
+              <h3 className="text-base font-bold text-white">
+                {p.title}
+              </h3>
+              <p className="text-xs text-[#B3B3B3] leading-relaxed font-light">
+                {p.desc}
               </p>
             </div>
+          ))}
+        </div>
 
-            <div className="h-px w-full bg-[#2F2F2F]" />
-
-            {/* 4 Feature Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {pillars.map((p, i) => (
-                <div 
-                  key={i} 
-                  className="bg-[#090909] border border-[#2F2F2F] rounded-[18px] p-6 hover:border-[#F97316] shadow-md flex flex-col justify-between group"
-                >
-                  <div className="space-y-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#1C1C1C] border border-[#2F2F2F] flex items-center justify-center">
-                      {p.icon}
-                    </div>
-                    <h3 className="text-base font-bold text-white group-hover:text-[#F97316]">
-                      {p.title}
-                    </h3>
-                    <p className="text-xs text-[#B3B3B3] leading-relaxed font-light">
-                      {p.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom Link */}
-            <div className="pt-2 flex justify-center">
-              <Link href="/about" className="btn-jaswanth-secondary group">
-                <span>Learn More About Our Guild</span>
-                <ArrowRight className="w-4 h-4 text-[#F97316]" />
-              </Link>
-            </div>
-
-          </div>
+        {/* Bottom Link */}
+        <div className="pt-2 flex justify-center">
+          <Link href="/about" className="btn-jaswanth-secondary group">
+            <span>Learn More About Our Guild</span>
+            <ArrowRight className="w-4 h-4 text-[#F97316]" />
+          </Link>
         </div>
 
       </div>

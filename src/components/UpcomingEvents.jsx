@@ -5,18 +5,16 @@ import Link from 'next/link';
 import { Calendar, ArrowRight, Clock } from 'lucide-react';
 
 export const UpcomingEvents = () => {
-  const featuredEvents = [];
-
   return (
-    <section className="w-full py-20 md:py-28 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
+    <section className="w-full py-16 md:py-24 px-4 sm:px-6 md:px-12 flex justify-center bg-[#090909]">
       <div className="max-w-6xl w-full space-y-10">
         
-        {/* Header with matching alignment */}
+        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141414] border border-[#F97316]/40 text-[#F97316] text-xs font-bold uppercase tracking-wider">
               <Calendar className="w-3.5 h-3.5" />
-              Guild Calendar
+              <span className="text-white">Guild Calendar</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
               Upcoming <span className="text-[#F97316]">Events & Activities</span>
@@ -32,9 +30,9 @@ export const UpcomingEvents = () => {
           </Link>
         </div>
 
-        {/* Announcements / No Events Banner Card */}
-        <div className="card-jaswanth-24 border-dashed border-[#2F2F2F] text-center flex flex-col items-center justify-center p-8 bg-[#1C1C1C] hover:border-[#F97316]">
-          <div className="w-12 h-12 rounded-2xl bg-[#090909] border border-[#2F2F2F] flex items-center justify-center mb-4 text-[#F97316] shadow-md">
+        {/* Unboxed Text Notice */}
+        <div className="border-t border-b border-[#2F2F2F] text-center flex flex-col items-center justify-center py-12">
+          <div className="w-12 h-12 rounded-2xl bg-[#141414] flex items-center justify-center mb-4 text-[#F97316]">
             <Clock className="w-6 h-6" />
           </div>
           <h3 className="text-lg md:text-xl font-bold font-heading text-white tracking-widest uppercase mb-2">

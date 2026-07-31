@@ -20,31 +20,27 @@ export const NotificationsPage = () => {
   return (
     <div className="pb-20 pt-2 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto w-full flex flex-col items-center justify-center min-h-[60vh] bg-[#090909]">
       {announcements.length === 0 ? (
-        <div className="w-full max-w-3xl">
-          <div className="card-jaswanth-24 border-dashed border-[#2F2F2F] text-center flex flex-col items-center justify-center p-12 bg-[#1C1C1C]">
-            <div className="w-14 h-14 rounded-2xl bg-[#090909] border border-[#2F2F2F] flex items-center justify-center mb-5 text-[#F97316] shadow-md">
-              <Bell className="w-7 h-7" />
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold font-heading text-white tracking-wider uppercase mb-3">
-              NO NOTIFICATIONS YET
-            </h3>
-            <p className="text-[#B3B3B3] text-xs sm:text-sm max-w-md font-light leading-relaxed mx-auto">
-              There are no updates or announcements posted at this time. Please check back later.
-            </p>
+        <div className="w-full max-w-3xl border-t border-b border-[#2F2F2F] text-center flex flex-col items-center justify-center py-16">
+          <div className="w-14 h-14 rounded-2xl bg-[#141414] flex items-center justify-center mb-5 text-[#F97316]">
+            <Bell className="w-7 h-7" />
           </div>
+          <h3 className="text-xl sm:text-2xl font-bold font-heading text-white tracking-wider uppercase mb-3">
+            NO NOTIFICATIONS YET
+          </h3>
+          <p className="text-[#B3B3B3] text-xs sm:text-sm max-w-md font-light leading-relaxed mx-auto">
+            There are no updates or announcements posted at this time. Please check back later.
+          </p>
         </div>
       ) : (
-        <div className="w-full space-y-4">
+        <div className="w-full space-y-6">
           {announcements.map((item) => (
             <div
               key={item.id}
-              className={`card-jaswanth-24 p-6 space-y-3 ${
-                item.pinned ? 'border-[#F97316] bg-[#1C1C1C]' : 'hover:border-[#F97316]'
-              }`}
+              className="border-t border-[#2F2F2F] pt-6 space-y-3"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#090909] text-[#F97316] border border-[#2F2F2F] flex items-center gap-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#141414] text-[#F97316] border border-[#F97316]/40 flex items-center gap-1">
                     <Megaphone className="w-3 h-3" />
                     {item.type}
                   </span>
