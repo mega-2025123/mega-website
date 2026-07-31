@@ -44,12 +44,15 @@ export const WelcomeSection = () => {
           <div className="w-12 h-[3px] bg-[#F97316] rounded-full my-2" />
         </div>
 
-        {/* Featured Text */}
-        <div className="space-y-4 max-w-3xl mx-auto py-2">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#141414] border border-[#F97316]/40 px-4 py-1.5 rounded-full">
-            ESTABLISHED 2025 • NSRIET
-          </span>
-          <p className="text-[#B3B3B3] font-light text-lg md:text-xl leading-relaxed">
+        {/* Featured Text & Badge Pill with Perfect Vertical Spacing */}
+        <div className="max-w-3xl mx-auto flex flex-col items-center pt-2 pb-4">
+          <div className="mb-6">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#F97316] bg-[#141414] border border-[#F97316]/50 px-5 py-2 rounded-full shadow-md">
+              ESTABLISHED 2025 • NSRIET
+            </span>
+          </div>
+          
+          <p className="text-[#B3B3B3] font-light text-base sm:text-lg md:text-xl leading-relaxed md:leading-loose">
             Welcome to the official portal of <strong className="text-white font-semibold">MEGA (Mechanical Engineering Guild Association)</strong>. Here, you'll find real-time updates on upcoming events, industrial workshops, and highlights from our technical achievements. We invite you to explore and stay connected!
           </p>
         </div>
