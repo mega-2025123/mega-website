@@ -29,7 +29,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pt-3 md:pt-4 px-4 md:px-8 flex justify-center pointer-events-none transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 pt-2 md:pt-3 px-4 md:px-8 flex justify-center pointer-events-none transition-all duration-300">
       <div className={`pointer-events-auto w-full max-w-7xl flex items-center justify-between px-6 md:px-10 top-nav-jaswanth transition-all duration-300 ${scrolled ? 'top-nav-jaswanth-scrolled' : ''}`}>
         
         {/* Left: MEGA Branding */}
