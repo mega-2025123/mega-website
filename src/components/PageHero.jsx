@@ -9,9 +9,11 @@ export const PageHero = ({ title, subtitle, accentWord }) => {
       <div className="h-16 md:h-24" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        {/* Hero Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-md mb-6">
-          <span>MEGA NSRIET • Estd 2025</span>
+        {/* High-Contrast Hero Badge */}
+        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#141414] border border-[#F97316]/40 text-xs font-extrabold uppercase tracking-wider shadow-md mb-6">
+          <span className="text-white">MEGA NSRIET</span>
+          <span className="text-[#FF8A00]">•</span>
+          <span className="text-[#FF8A00]">ESTD 2025</span>
         </div>
 
         {/* Hero Title */}

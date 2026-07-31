@@ -11,10 +11,12 @@ export const Hero = () => {
         {/* Spacer to push content below floating navbar */}
         <div className="h-12 md:h-20 shrink-0" />
         
-        {/* Tracking Badge with generous bottom separation */}
-        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1C1C1C] border border-[#2F2F2F] text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-[0.25em] shadow-md mb-8 md:mb-12">
-          <Sparkles className="w-4 h-4 text-[#F97316]" />
-          <span>WELCOME TO OUR ASSOCIATION • ESTD 2025</span>
+        {/* High-Contrast Visible Tracking Badge */}
+        <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#141414] border border-[#F97316]/50 text-xs md:text-sm font-extrabold uppercase tracking-wider shadow-lg mb-8 md:mb-12">
+          <Sparkles className="w-4 h-4 text-[#FF8A00]" />
+          <span className="text-white">WELCOME TO OUR ASSOCIATION</span>
+          <span className="text-[#FF8A00] font-black">•</span>
+          <span className="text-[#FF8A00]">ESTD 2025</span>
         </div>
 
         {/* Big Guild Logo White Text Image */}
