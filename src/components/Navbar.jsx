@@ -12,7 +12,7 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -29,16 +29,15 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pt-4 md:pt-6 px-4 md:px-8 flex justify-center pointer-events-none transition-all duration-300">
-      <div className={`pointer-events-auto w-full max-w-7xl flex items-center justify-between px-6 md:px-10 top-nav-jaswanth transition-all duration-300 ${scrolled ? 'top-nav-jaswanth-scrolled' : ''
-        }`}>
-
+    <header className="fixed top-0 left-0 right-0 z-50 pt-3 md:pt-4 px-4 md:px-8 flex justify-center pointer-events-none transition-all duration-300">
+      <div className={`pointer-events-auto w-full max-w-7xl flex items-center justify-between px-6 md:px-10 top-nav-jaswanth transition-all duration-300 ${scrolled ? 'top-nav-jaswanth-scrolled' : ''}`}>
+        
         {/* Left: MEGA Branding */}
         <Link href="/" className="flex items-center gap-2 group">
           <MegaLogo showText={true} />
         </Link>
 
-        {/* Nav Links with active page orange underline */}
+        {/* Nav Links */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navItems.map((item) => {
             const isActive = pathname === item.path;
@@ -46,10 +45,11 @@ export const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.path}
-                className={`relative px-3 py-1.5 xl:px-4 xl:py-2 text-xs xl:text-sm font-medium transition-all duration-200 ${isActive
+                className={`relative px-3 py-1.5 xl:px-4 xl:py-2 text-xs xl:text-sm font-medium transition-all duration-200 ${
+                  isActive
                     ? 'text-white font-bold'
                     : 'text-[#B3B3B3] hover:text-white'
-                  }`}
+                }`}
               >
                 {item.name}
                 {isActive && (
@@ -72,7 +72,7 @@ export const Navbar = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto lg:hidden fixed top-24 left-4 right-4 bg-[#121212] border border-[#2F2F2F] rounded-[20px] p-5 space-y-1 backdrop-blur-2xl shadow-2xl animate-fadeInUp">
+        <div className="pointer-events-auto lg:hidden fixed top-20 left-4 right-4 bg-[#121212] border border-[#2F2F2F] rounded-[20px] p-5 space-y-1 backdrop-blur-2xl shadow-2xl animate-fadeInUp">
           {navItems.map((item, i) => {
             const isActive = pathname === item.path;
             return (
@@ -80,10 +80,11 @@ export const Navbar = () => {
                 key={item.name}
                 href={item.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${isActive
+                className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                  isActive
                     ? 'text-[#F97316] font-bold bg-[#1C1C1C]'
                     : 'text-[#B3B3B3] hover:bg-[#1C1C1C] hover:text-white'
-                  }`}
+                }`}
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
                 {item.name}
